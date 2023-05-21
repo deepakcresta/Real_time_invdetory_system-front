@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3>{{title}}</h3>
+    <form [formGroup]="loginForm">
+    <div class="mb-3">
+      <label>Username</label>
+      <input id="username" type="text" placeholder="Username" formControlName="username" class="form-control"
+             name="username" required autofocus
+             [ngClass]="{ 'is-invalid': submitted && form['username'].errors, 'is-valid': form['username'].valid }"
+      />
+      <span *ngIf="submitted || form['username'].touched || form['username'].dirty && form['username'].invalid"
+            class="info-msg text-danger">
+          <small
+            *ngIf="form['username'].errors && form['username'].errors?.['required']">This is the required field.</small>
+          <small *ngIf="form['username'].errors && form['username'].errors?.['minlength']">Should have at least 4 characters.</small>
+        </span>
+    </div>
+    </form>
+  </div>
+</div>
