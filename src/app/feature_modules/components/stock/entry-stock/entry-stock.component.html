@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h5> <span class="me-3" (click)="onGoBack()" title="Click Here to Go Back"> <i class="fal fa-backward"></i> </span> Add New  Stock</h5>
+  </div>
+  <hr class="my-2" />
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="stockEntryForm" class="users_fields">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label>Stock Name</label>
+            <input type="text" formControlName="stockNane" name="stockNane" id="stockNane" class="form-control form-control-sm" placeholder="Enter Stock Name" />
+            <span *ngIf="submitted || form['stockNane'].touched || form['stockNane'].dirty && form['stockNane'].invalid"
+                  class="info-msg text-danger">
+              <small
+                *ngIf="form['stockNane'].errors && form['stockNane'].errors?.['required']">This is the required field.</small>
+              <small *ngIf="form['stockNane'].errors && form['stockNane'].errors?.['minlength']">Should have at least 4 characters.</small>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label>Stock Unit</label>
+            <input name="stockUnit" formControlName="stockUnit" id="stockUnit" class="form-control form-control-sm" placeholder="Enter Stock Unti" />
+            <span *ngIf="submitted || form['stockUnit'].touched || form['stockUnit'].dirty && form['stockUnit'].invalid"
+                  class="info-msg text-danger">
+              <small
+                *ngIf="form['stockUnit'].errors && form['stockUnit'].errors?.['required']">This is the required field.</small>
+              <small *ngIf="form['stockUnit'].errors && form['stockUnit'].errors?.['minlength']">Should have at least 4 characters.</small>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label>Stock Type</label>
+            <input  name="stockType" formControlName="stockType" id="stockType" class="form-control form-control-sm" placeholder="Enter Password" />
+            <span *ngIf="submitted || form['stockType'].touched || form['stockType'].dirty && form['stockType'].invalid"
+                  class="info-msg text-danger">
+              <small
+                *ngIf="form['stockType'].errors && form['stockType'].errors?.['required']">This is the required field.</small>
+              <small *ngIf="form['stockType'].errors && form['stockType'].errors?.['minlength']">Should have at least 4 characters.</small>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label>Danger Zone</label>
+            <input type="text" name="dangerZone" formControlName="dangerZone" id="dangerZone" class="form-control form-control-sm" placeholder="Enter Stock Danger Zone" />
+            <span *ngIf="submitted || form['dangerZone'].touched || form['dangerZone'].dirty && form['stockType'].invalid"
+                  class="info-msg text-danger">
+              <small
+                *ngIf="form['dangerZone'].errors && form['dangerZone'].errors?.['required']">This is the required field.</small>
+              <small *ngIf="form['dangerZone'].errors && form['dangerZone'].errors?.['minlength']">Should have at least 4 characters.</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <button (click)="onSaveStockLevel()" class="btn w-25 btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
