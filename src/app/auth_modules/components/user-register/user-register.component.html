@@ -1,1 +1,266 @@
-<p>user-register works!</p>
+<!--<section class="contact_section layout_padding" id="contact">-->
+<!--  <div class="container">-->
+<!--    <div class="heading_container fw-bold text-uppercase">-->
+<!--      <h2>Contact Us</h2>-->
+<!--    </div>-->
+<!--    <div class="row row-cols-1 row-cols-md-2 g-2">-->
+<!--      <div class="form-container cols-md-6">-->
+<!--        <form [formGroup]="registerForm">-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-12">-->
+<!--              <div class="form-group p-2">-->
+<!--                <input type="text" formControlName="name" name="name" id="name" class="form-control" placeholder="Name"-->
+<!--                       required style="-->
+<!--                      border: none;-->
+<!--                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);-->
+<!--                      height: 50px;-->
+<!--                    " />-->
+<!--                <span *ngIf="-->
+<!--                      submitted ||-->
+<!--                      forms['name'].dirty ||-->
+<!--                      (forms['name'].touched && forms['name'].invalid)-->
+<!--                    "-->
+<!--                      class="info-msg text-danger"-->
+<!--                >-->
+<!--                    <small-->
+<!--                      *ngIf="forms['name'].errors &&-->
+<!--                                forms['name'].errors?.['required']"-->
+<!--                    >-->
+<!--                      *Name is required !-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['name'].errors?.['minlength']">-->
+<!--                      *You name must have atleast 3 characters !-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['name'].errors?.['maxlength']">-->
+<!--                      *Your name should not be more than 60 chracters !-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['name'].errors?.['pattern']">-->
+<!--                      *Your name should contain alphabet letters !-->
+<!--                    </small>-->
+<!--                  </span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-12">-->
+<!--              <div class="form-group p-2">-->
+<!--                <input type="text" formControlName="phoneNumber" name="phoneNumber" class="form-control"-->
+<!--                       placeholder="Phone Number" style="-->
+<!--                      border: none;-->
+<!--                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);-->
+<!--                      height: 50px;-->
+<!--                    " required />-->
+<!--                <span *ngIf="-->
+<!--                      submitted ||-->
+<!--                      forms['phoneNumber'].dirty ||-->
+<!--                      (forms['phoneNumber'].touched &&-->
+<!--                        forms['phoneNumber'].invalid)-->
+<!--                    "-->
+<!--                      class="info-msg text-danger"-->
+<!--                >-->
+<!--                    <small-->
+<!--                      *ngIf="forms['phoneNumber'].errors &&-->
+<!--                                forms['phoneNumber'].errors?.['required']"-->
+<!--                    >-->
+<!--                      *Phone Number is required !-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['phoneNumber'].errors?.['minlength']">-->
+<!--                      *Phone Number should be 10 digits!-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['phoneNumber'].errors?.['pattern']">-->
+<!--                      * Phone number should contain nummeic value!-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">-->
+<!--                      *Phone Number should not bemore than 10 digits!-->
+<!--                    </small>-->
+<!--                  </span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-12">-->
+<!--              <div class="form-group p-2 mt-4">-->
+<!--                <input type="email" formControlName="email" name="email" class="form-control" required style="-->
+<!--                      border: none;-->
+<!--                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);-->
+<!--                      height: 50px;-->
+<!--                    "-->
+<!--                       placeholder="Email"-->
+<!--                />-->
+<!--                <span-->
+<!--                  *ngIf="-->
+<!--                      submitted ||-->
+<!--                      forms['email'].dirty ||-->
+<!--                      (forms['email'].touched && forms['email'].invalid)-->
+<!--                    "-->
+<!--                  class="info-msg text-danger"-->
+<!--                >-->
+<!--                    <small-->
+<!--                      *ngIf="forms['email'].errors &&-->
+<!--                                  forms['email'].errors?.['required']"-->
+<!--                    >-->
+<!--                      * Email is required-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['email'].errors?.['pattern']">-->
+<!--                      *Invalid Email enter the valid email!-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['email'].errors?.['minlength']">-->
+<!--                      *Email should be atleast 8 characters!-->
+<!--                    </small>-->
+<!--                    <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">-->
+<!--                      *Email should not be more thab 80 characters!-->
+<!--                    </small>-->
+<!--                  </span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-12">-->
+<!--              <div class="form-group p-2">-->
+<!--                <input type="text" formControlName="message" name="message" class="form-control" placeholder="message"-->
+<!--                       required style="-->
+<!--                      height: 110px;-->
+<!--                      border: none;-->
+<!--                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);-->
+<!--                    " placeholder="Message" />-->
+<!--                <span *ngIf="-->
+<!--                      submitted ||-->
+<!--                      forms['message'].dirty ||-->
+<!--                      (forms['message'].touched && forms['message'].invalid)-->
+<!--                    "-->
+<!--                      class="info-msg text-danger"-->
+<!--                >-->
+<!--                    <small-->
+<!--                      *ngIf="forms['message'].errors &&-->
+<!--                                  forms['message'].errors?.['required']"-->
+<!--                    >-->
+<!--                      *It would be better if you leave a message !-->
+<!--                    </small>-->
+<!--                  </span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="d-grid col-4 p-3">-->
+<!--              <button type="button" class="mt-4 p-2 col-sm-8 btn btn-secondary" (click)="onRegisterForm()">-->
+<!--                Send-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<form [formGroup]="registerForm">
+  <div class="row">
+    <div class="row text-center">
+      <div class="col-sm-12">
+        <h3>
+          <b>Register Form</b>
+        </h3>
+      </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>First Nme</label>
+      <input id="firstName" type="text" placeholder="firstName" formControlName="firstName" class="form-control"
+             name="firstName" required autofocus
+      />
+      <span *ngIf="submitted || form['firstName'].touched || form['firstName'].dirty && form['firstName'].invalid"
+            class="info-msg text-danger">
+          <small
+            *ngIf="form['firstName'].errors && form['firstName'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>Last Name</label>
+      <input id="lastName" type="text" placeholder="Last Name" formControlName="lastName" class="form-control"
+             name="lastName" required autofocus
+      />
+      <span *ngIf="submitted || form['lastName'].touched || form['lastName'].dirty && form['lastName'].invalid"
+            class="info-msg text-danger">
+          <small
+            *ngIf="form['lastName'].errors && form['lastName'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>Email</label>
+      <input id="email" type="text" placeholder="Email" formControlName="email" class="form-control"
+             name="email" required autofocus
+      />
+      <span *ngIf="submitted || form['email'].touched || form['email'].dirty && form['email'].invalid"
+            class="info-msg text-danger">
+          <small
+            *ngIf="form['email'].errors && form['email'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>Contact Number</label>
+      <input id="contactNumber" type="text" placeholder="Contact Number" formControlName="contactNumber"
+             class="form-control"
+             name="contactNumber" required autofocus
+      />
+      <span
+        *ngIf="submitted || form['contactNumber'].touched || form['contactNumber'].dirty && form['contactNumber'].invalid"
+        class="info-msg text-danger">
+          <small
+            *ngIf="form['contactNumber'].errors && form['contactNumber'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>User Name</label>
+      <input id="userName" type="text" placeholder="User Name" formControlName="userName" class="form-control"
+             name="userName" required autofocus
+      />
+      <span *ngIf="submitted || form['userName'].touched || form['userName'].dirty && form['userName'].invalid"
+            class="info-msg text-danger">
+          <small
+            *ngIf="form['userName'].errors && form['userName'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>Password</label>
+      <input id="password" type="text" placeholder="password" formControlName="password" class="form-control"
+             name="password" required autofocus
+      />
+      <span *ngIf="submitted || form['password'].touched || form['password'].dirty && form['password'].invalid"
+            class="info-msg text-danger">
+          <small
+            *ngIf="form['password'].errors && form['password'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>Temporary Address</label>
+      <input id="temporaryAddress" type="text" placeholder="Temporary Address" formControlName="temporaryAddress"
+             class="form-control"
+             name="temporaryAddress" required autofocus
+      />
+      <span
+        *ngIf="submitted || form['temporaryAddress'].touched || form['temporaryAddress'].dirty && form['temporaryAddress'].invalid"
+        class="info-msg text-danger">
+          <small
+            *ngIf="form['temporaryAddress'].errors && form['temporaryAddress'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <label>Permanent Address</label>
+      <input id="permanentAddress" type="text" placeholder="Permanent Address" formControlName="permanentAddress"
+             class="form-control"
+             name="permanentAddress" required autofocus
+      />
+      <span
+        *ngIf="submitted || form['permanentAddress'].touched || form['permanentAddress'].dirty && form['permanentAddress'].invalid"
+        class="info-msg text-danger">
+          <small
+            *ngIf="form['permanentAddress'].errors && form['permanentAddress'].errors?.['required']">This is the required field.</small>
+        </span>
+    </div>
+    <div class="col-sm-3">
+      <button type="button" class="btn btn-secondary"
+              (click)="onRegisterUser()"  >
+        Click to Register
+
+      </button>
+    </div>
+  </div>
+</form>

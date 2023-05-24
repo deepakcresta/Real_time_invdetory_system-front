@@ -1,3 +1,53 @@
+/////* You can add global styles to this file, and also import other style files */
+////
+////
+////.card {
+////  width: 600px;
+////  hiight:600px;
+////  justify-content: center;
+////  border-radius: solid black 2px;
+////}
+////
+////.form-group {
+////  margin-bottom: 1rem;
+////}
+////
+////.btn-primary {
+////  margin-top: 1rem;
+////}
+form.form-fields-group .form-field {
+  margin: 20px 0;
+}
+.sb_input {
+  border: 2px solid #e1e5ee;
+  border-radius: 0.3rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 0.5rem;
+  background: none;
+}
+.text-danger {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
+.sb_floating_label {
+  position: absolute;
+  left: 1rem;
+  top: -1rem;
+  padding: 4px 0.5rem;
+  color: black;
+  font-size: 0.8rem;
+  //cursor: text;
+  //transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  background-color: white;
+}
+@media only screen and (max-width: 768px) {
+  .sb_floating_label {
+    top: -1.8rem;
+  }
+}
 /* You can add global styles to this file, and also import other style files */
 body {
   background: #eee;
@@ -43,4 +93,13 @@ body {
 
 .form-group {
   padding: 10px;
+}
+.footer {
+  position: fixed;
+  margin-left: 0%;
+  bottom: 0;
+  width: 100%;
+  background-color: #7e5e5e;
+  color: #2b2b2c;
+  text-align: center;
 }

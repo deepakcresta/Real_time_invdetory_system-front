@@ -10,6 +10,7 @@ import { StockDisplayComponent } from './components/stock/stock-display/stock-di
 import { SaleComponent } from './components/sales/sale/sale.component';
 import {BaseModule} from "../base_modules/base.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     DashboardComponent,
     EntryStockComponent,
     StockDisplayComponent,
-    SaleComponent
+    SaleComponent,
+    ContactUsComponent,
   ],
   imports: [
     CommonModule,

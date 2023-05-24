@@ -6,6 +6,7 @@ import {BaseLayoutComponent} from './base-layout/base-layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import {RouterModule} from "@angular/router";
+import { FooterComponent } from './components/footer/footer.component';
 
 const COMPONENTS: Array<any> = [
   BaseLayoutComponent,
@@ -15,7 +16,8 @@ const COMPONENTS: Array<any> = [
   declarations: [
     BaseLayoutComponent,
     SidebarComponent,
-    HeaderNavComponent
+    HeaderNavComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,7 @@ const COMPONENTS: Array<any> = [
     ReactiveFormsModule,
     RouterModule,
   ],
-  exports: [COMPONENTS]
+    exports: [COMPONENTS, SidebarComponent, HeaderNavComponent, FooterComponent]
 })
 export class BaseModule {
 }
