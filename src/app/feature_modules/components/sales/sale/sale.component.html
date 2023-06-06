@@ -1,1 +1,50 @@
-<p>sale works!</p>
+<div class="row">
+  <div class="col-sm-6">
+    <h5>All Inventory Stock List</h5>
+  </div>
+  <div class="col-sm-6">
+    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New
+    </button>
+  </div>
+  <hr class="my-2"/>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-centered table-striped table-hover table-bordered table-nowrap mb-0 mt-3"
+           style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+      <thead class="bg-light">
+      <tr>
+        <th>
+          <label class="sb_label">SN. No</label>
+        </th>
+        <th>
+          <label class="sb_label">Stock Name</label>
+        </th>
+        <th>
+          <label class="sb_label">Quantity</label>
+        </th>
+        <th>
+          <label class="sb_label">Category</label>
+        </th>
+        <th>
+          <label class="sb_label">Actions</label>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let sale of allSaleList; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{sale.stockName}}</td>
+        <td>{{sale.quqntity}}</td>
+        <td>{{sale.category}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary">View</button>
+          <button class="btn btn-sm btn-info">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="onDeleteClick(sale.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

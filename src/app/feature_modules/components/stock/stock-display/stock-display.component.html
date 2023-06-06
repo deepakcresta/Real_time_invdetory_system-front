@@ -1,37 +1,50 @@
-<div class="container">
-  <h2>Stock Level</h2>
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>SN</th>
-      <th>Stock Name</th>
-      <th>Present Stock</th>
-      <th>Maximum Stock</th>
-      <th>Danger Sock Label</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>1</td>
-      <td>Rice</td>
-      <td>45</td>
-      <td>45</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Rice</td>
-      <td>45</td>
-      <td>45</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Rice</td>
-      <td>45</td>
-      <td>45</td>
-      <td>12</td>
-    </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-sm-6">
+    <h5>All Inventory Stock List</h5>
+  </div>
+  <div class="col-sm-6">
+    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New
+    </button>
+  </div>
+  <hr class="my-2"/>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-centered table-striped table-hover table-bordered table-nowrap mb-0 mt-3"
+           style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+      <thead class="bg-light">
+      <tr>
+        <th>
+          <label class="sb_label">SN. No</label>
+        </th>
+        <th>
+          <label class="sb_label">Stock Name</label>
+        </th>
+        <th>
+          <label class="sb_label">Quantity</label>
+        </th>
+        <th>
+          <label class="sb_label">Category</label>
+        </th>
+        <th>
+          <label class="sb_label">Actions</label>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let stock of allStockList; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{stock.stockName}}</td>
+        <td>{{stock.quqntity}}</td>
+        <td>{{stock.category}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary">View</button>
+          <button class="btn btn-sm btn-info">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="onDeleteClick(stock.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

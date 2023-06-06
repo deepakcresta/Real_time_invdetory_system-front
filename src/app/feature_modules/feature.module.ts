@@ -11,6 +11,8 @@ import { SaleComponent } from './components/sales/sale/sale.component';
 import {BaseModule} from "../base_modules/base.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     FeatureRoutingModule,
     BaseModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ]
 })
 export class FeatureModule { }

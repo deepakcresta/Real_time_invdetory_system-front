@@ -13,13 +13,22 @@ export class SharedService {
   }
 
   baseUrl: string = environment.baseUrl;
-  contactApiEndPoint: string = '/contact/';
+  stockApiEndPoint: string = '/stock/';
+  contactApiEndPoint: string = '/contact/'
 
 
   constructor(private httpClient: HttpClient) {
   }
 
 
+  // Adding the stock
+  addStock(stock: any): Observable<any> {
+    console.log(stock);
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.stockApiEndPoint),
+      stock
+    );
+  }
   // Adding the contact of contact form to contact data base
   addContact(contact: any): Observable<any> {
     console.log(contact);
@@ -27,5 +36,21 @@ export class SharedService {
       this.baseUrl.concat(this.contactApiEndPoint),
       contact
     );
+  }
+  listAllStocks(): Observable<any> {
+    return this.httpClient.get(environment.baseUrl + '/stock/');
+  }
+
+  deleteUserById(id: number): Observable<any> {
+    return this.httpClient.delete(environment.baseUrl + '/stock/' + `${id}`);
+  }
+
+  //sales
+  listAllSales(): Observable<any> {
+    return this.httpClient.get(environment.baseUrl + '/sale/');
+  }
+
+  deleteSaleById(id: number): Observable<any> {
+    return this.httpClient.delete(environment.baseUrl + '/sale/' + `${id}`);
   }
 }

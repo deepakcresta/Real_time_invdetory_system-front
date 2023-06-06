@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {SharedService} from "../../../service/shared.service";
 
 @Component({
   selector: 'deepak-entry-stock',
@@ -11,12 +12,14 @@ import {Location} from "@angular/common";
 export class EntryStockComponent implements OnInit {
   stockEntryForm: FormGroup = new  FormGroup({});
   submitted:boolean = false;
+  isSubmitting: boolean | undefined;
 
 
   constructor(
     private formBuilder: FormBuilder,
     private location: Location,
     private router: Router,
+    private  sharedService: SharedService,
   ) { }
 
   ngOnInit(): void {
@@ -24,11 +27,26 @@ export class EntryStockComponent implements OnInit {
   }
   buildForm(){
     this.stockEntryForm = this.formBuilder.group({
-      stockName:[undefined],
-      stockUniT:[undefined],
-      stockType:[undefined],
+      stockEntryDetails :this.formBuilder.array([]),
+      // stockName:[undefined],
+      // stockUniT:[undefined],
+      // stockType:[undefined],
 
-    })
+    });
+    this.addMore();
+  }
+  addMore(){
+    const stockEntryControl = this.stockEntryForm.get('stockEntryDetails') as FormArray;
+    stockEntryControl.push(this.formBuilder.group({
+      stockName:[undefined],
+      category :[undefined],
+      quantity:[undefined],
+    }))
+
+  }
+
+  get stockEntryDetails(): FormArray{
+    return this.stockEntryForm.get("stockEntryDetails") as FormArray;
   }
   get form(): { [key: string]: AbstractControl } {
     return this.stockEntryForm.controls;
@@ -36,11 +54,32 @@ export class EntryStockComponent implements OnInit {
   onGoBack(){
     this.location.back();
   }
-  onSaveStockLevel(){
-    this.submitted= true;
-    if(this.stockEntryForm.invalid){
-      return;
-    }
+  onSaveStockLevel(stock:any){
+    this.submitted = true;
+    console.log(stock);
+    if (this.stockEntryForm.valid) {
+      this.sharedService.addStock(stock).subscribe(
+        (response: any) => {
+          this.isSubmitting = false;
+          console.log("mero data heram hia ta",response);
+          console.log('Stock added Successfully.');
+          this.router.navigate(['/display-stock'])
+          this.reloadComponent();
 
+        },
+        (error: any) => {
+          this.isSubmitting = false;
+          this.router.navigate(['/display-stock']);
+          console.log('Error on adding the stock');
+        }
+      );
+    }
   }
+  reloadComponent() {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
+
 }
