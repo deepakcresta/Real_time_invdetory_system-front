@@ -10,7 +10,32 @@ import {SharedService} from "../../../service/shared.service";
   styleUrls: ['./sale.component.scss']
 })
 export class SaleComponent implements OnInit {
-  allSaleList: Array<any> = new Array<any>();
+  // allSaleList: Array<any> = new Array<any>();
+
+  allSaleList =[
+    {
+    stockName:" Rice",
+    category:"normal goods",
+    quantity:"1"
+  },
+    {
+      stockName: " Rice",
+      category: "normal goods",
+      quantity: "1"
+    },
+    {
+      stockName: " Rice",
+      category: "normal goods",
+      quantity: "1"
+    },
+    {
+      stockName: " Rice",
+      category: "normal goods",
+      quantity: "1"
+    }
+
+
+  ]
   submitted:boolean = false;
   isSubmitting: boolean | undefined;
 
@@ -46,14 +71,14 @@ export class SaleComponent implements OnInit {
     });
   }
 
-  onDeleteClick(id: number) {
-    this.sharedService.deleteSaleById(id).subscribe(
-      {
-        next: (response: any) => {
-          this.listAllSales();
-        }
-      }
-    );
+  onDeleteClick() {
+  //   this.sharedService.deleteSaleById(id).subscribe(
+  //     {
+  //       next: (response: any) => {
+  //         this.listAllSales();
+  //       }
+  //     }
+  //   );
   }
 }
 

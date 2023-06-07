@@ -36,12 +36,12 @@
       <tr *ngFor="let sale of allSaleList; let i = index">
         <td>{{i + 1}}</td>
         <td>{{sale.stockName}}</td>
-        <td>{{sale.quqntity}}</td>
+        <td>{{sale.quantity}}</td>
         <td>{{sale.category}}</td>
         <td>
           <button class="btn btn-sm btn-primary">View</button>
           <button class="btn btn-sm btn-info">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="onDeleteClick(sale.id)">Delete</button>
+          <button class="btn btn-sm btn-danger" (click)="onDeleteClick()">Delete</button>
         </td>
       </tr>
       </tbody>

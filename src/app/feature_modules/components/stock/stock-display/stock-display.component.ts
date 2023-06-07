@@ -11,7 +11,30 @@ import {SharedService} from "../../../service/shared.service";
 })
 export class StockDisplayComponent implements OnInit {
 
-  allStockList: Array<any> = new Array<any>();
+  allStockList =[
+    {
+      stockName:" Rice",
+      category:"normal goods",
+      quantity:"1"
+    },
+    {
+      stockName: " Rice",
+      category: "normal goods",
+      quantity: "1"
+    },
+    {
+      stockName: " Rice",
+      category: "normal goods",
+      quantity: "1"
+    },
+    {
+      stockName: " Rice",
+      category: "normal goods",
+      quantity: "1"
+    }
+
+
+  ]
   submitted:boolean = false;
   isSubmitting: boolean | undefined;
 
@@ -47,13 +70,13 @@ export class StockDisplayComponent implements OnInit {
     });
   }
 
-  onDeleteClick(id: number) {
-    this.sharedService.deleteUserById(id).subscribe(
-      {
-        next: (response: any) => {
-          this.listAllStocks();
-        }
-      }
-    );
+  onDeleteClick() {
+  //   this.sharedService.deleteUserById(id).subscribe(
+  //     {
+  //       next: (response: any) => {
+  //         this.listAllStocks();
+  //       }
+  //     }
+  //   );
   }
 }
