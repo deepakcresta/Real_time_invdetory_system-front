@@ -15,7 +15,7 @@ class UntypedFormGroup {
 export class UserLoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
-  title: string = 'Sign In  To Restaurant Real Time Inventory';
+  title: string = ' Restaurant Real Time Inventory';
 
 
   constructor(
@@ -47,10 +47,10 @@ export class UserLoginComponent implements OnInit {
         next:(value: any)=>{
           this.loginForm.reset();
           console.log("User Login Successful")
-          this.router.navigate(['/home']);
+          this.router.navigate(['/feature-modules/home']);
         },error:(err :any) =>{
           console.log("Unable to login the user")
-          this.router.navigate(['/home']);
+          this.router.navigate(['/feature-modules/home']);
         }
       });
 

@@ -1,27 +1,27 @@
 <div class="header-box px-2 d-flex justify-content-between">
   <h1 class="fs-4 my-4" [routerLink]="'/home'">
-    <span class="text-white rounded shadow px-2 me-2">Real Time Restaurant Inventory System</span>
+    <span class="text-black rounded shadow px-2 me-2">Real Time Restaurant Inventory System</span>
   </h1>
   <button class="btn d-md-none d-block close close-btn px-1 py-0 text-white">
     <i class="fal fa-stream"></i>
   </button>
 </div>
 
-<ul class="list-unstyled px-2">
-  <li class="active" routerLink="/home"><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i
+<ul class=" text-black list-unstyled px-2">
+  <li class="active text-black " [routerLink]="'/feature-modules/home'"><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i
     class="fal fa-home"></i> Dashboard</a></li>
-  <li class="" [routerLink]="'/stock-entry'"><a href="javascript:void(0);"
+  <li class="text-black" [routerLink]="'/feature-modules/stock-entry'"><a href="javascript:void(0);"
                                                 class="text-decoration-none px-4 py-2 d-block"> <i
-    class="fal fa-user"></i> Stock Entry</a></li>
-  <li class="" [routerLink]="'/stock-label'"><a href="javascript:void(0);"
+    class="fal fa-user text-black"></i> Stock Entry</a></li>
+  <li class="" [routerLink]="'/feature-modules/stock-label'"><a href="javascript:void(0);"
                                                 class="text-decoration-none px-4 py-2 d-block"> <i
     class="fal fa-user"></i> Stock Label</a></li>
-  <li class="" [routerLink]="'/display-stock'"><a href="javascript:void(0);"
+  <li class="" [routerLink]="'/feature-modules/display-stock'"><a href="javascript:void(0);"
                                                   class="text-decoration-none px-4 py-2 d-block"> <i
     class="fal fa-user"></i> Display Stock</a></li>
-  <li class="" [routerLink]="'/sale'"><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i
+  <li class="" [routerLink]="'/feature-modules/sale'"><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i
     class="fal fa-user"></i> Sake</a></li>
-  <li class="" [routerLink]="'/contact-us'"><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i
+  <li class="" [routerLink]="'/feature-modules/contact-us'"><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i
     class="fal fa-user"></i> Contact Us</a></li>
 
 </ul>

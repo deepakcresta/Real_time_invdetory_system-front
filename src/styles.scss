@@ -54,15 +54,19 @@ body {
 }
 
 #side_nav {
-  background: #000;
+  background: #ffffff;
   min-width: 250px;
   max-width: 250px;
+  border-radius: 5px;
+  border-color: plum;
+  border-style: solid;
+
 }
 
 .content {
   min-height: 100vh;
   width: 100%;
-  background: #b7c9c9;
+  background: #ffffff;
 }
 
 .sidebar li.active {
@@ -75,7 +79,7 @@ body {
 }
 
 .sidebar li a {
-  color: #fff;
+  color: #1f1717;
 }
 
 @media (max-width: 767px) {
@@ -104,6 +108,7 @@ body {
   text-align: center;
 }
 .card-body{
+  align-items: center;
   border-radius: 25px;
   background: #ffffff;
   padding: 20px;

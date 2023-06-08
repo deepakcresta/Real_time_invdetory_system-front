@@ -9,9 +9,12 @@ import { EntryStockComponent } from './components/stock/entry-stock/entry-stock.
 import { StockDisplayComponent } from './components/stock/stock-display/stock-display.component';
 import { SaleComponent } from './components/sales/sale/sale.component';
 import {BaseModule} from "../base_modules/base.module";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+import {BaseLayoutComponent} from "./base-layout/base-layout/base-layout.component";
 
 
 
@@ -24,13 +27,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StockDisplayComponent,
     SaleComponent,
     ContactUsComponent,
+    BaseLayoutComponent
   ],
   imports: [
     CommonModule,
     FeatureRoutingModule,
     BaseModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule
   ]
 })
 export class FeatureModule { }

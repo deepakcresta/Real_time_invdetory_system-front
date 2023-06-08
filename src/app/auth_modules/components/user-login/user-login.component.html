@@ -1,8 +1,8 @@
-<div class="card-body">
-<div class="container mt-5">
-  <div class="row row-cols-1 row-cols-md-2 g-2">
-    <div class="form-container cols-md-6">
-      <h4 class="font-size-18 text-muted mt-2 text-center">{{title}}</h4>
+<div class="card-body  col-sm-3 align-self-center">
+<div class="container  mt-5">
+  <div class="row">
+    <div class=" col-sm-11">
+      <h4 class="font-size-30 mt-2 text-center">{{title}}</h4>
       <form [formGroup]="loginForm" class="form-horizontal">
         <div class="mb-3">
           <label>Username</label>
@@ -33,127 +33,22 @@
         </span>
         </div>
         <div class="row">
-          <div class="col-sm-2">
-            <button type="button" class="btn btn-success" (click)="onUserLogin()">
+          <div class="col-sm-6">
+            <button  type="button" class="btn btn-success" (click)="onUserLogin()">
               Login
             </button>
           </div>
-          .
-          <div class="col-sm-3 ">
-            <button type="button" class="btn btn-secondary"
-                (click)="onNavigateToRegister()"  >
-              Register
 
-            </button>
-          </div>
+<!--          <div class="col-sm-3 ">-->
+<!--            <button type="button" class="btn btn-secondary"-->
+<!--                (click)="onNavigateToRegister()"  >-->
+<!--              Register-->
+
+<!--            </button>-->
+<!--          </div>-->
         </div>
       </form>
     </div>
   </div>
 </div>
 </div>
-<!--<div class="card-body float-center mt-5 m-lg-5">-->
-<!--  <section class="contact_section layout_padding" id="contact">-->
-<!--    <div class="container">-->
-<!--      <div class="heading_container fw-bold text-center">-->
-<!--        <h3>Restaurant <br>-->
-<!--          Real Time <br>-->
-<!--          Inventory System-->
-<!--        </h3>-->
-<!--      </div>-->
-<!--      <div class="row row-cols-1 row-cols-md-2 g-2">-->
-<!--        <div class="form-container cols-md-8">-->
-<!--          <form [formGroup]="loginForm">-->
-<!--            <div class="row my-5">-->
-<!--              <div class="col-sm-12">-->
-<!--                <div class="form-group p-2">-->
-<!--                  <input-->
-<!--                    type="text"-->
-<!--                    formControlName="name"-->
-<!--                    name="name" id="name"-->
-<!--                    class="form-control"-->
-<!--                    placeholder="Name"-->
-<!--                    required style="-->
-<!--                      border: none;-->
-<!--                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);-->
-<!--                      height: 50px;-->
-<!--                    "/>-->
-<!--                  <span *ngIf="-->
-<!--                      submitted ||-->
-<!--                      form['name'].dirty ||-->
-<!--                      (form['name'].touched && form['name'].invalid)-->
-<!--                    "-->
-<!--                        class="info-msg text-danger"-->
-<!--                  >-->
-<!--                    <small-->
-<!--                      *ngIf="form['name'].errors &&-->
-<!--                                form['name'].errors?.['required']"-->
-<!--                    >-->
-<!--                      *Name is required !-->
-<!--                    </small>-->
-<!--                    <small *ngIf="form['name'].errors?.['minlength']">-->
-<!--                      *You name must have atleast 3 characters !-->
-<!--                    </small>-->
-<!--                    <small *ngIf="form['name'].errors?.['maxlength']">-->
-<!--                      *Your name should not be more than 60 chracters !-->
-<!--                    </small>-->
-<!--                    <small *ngIf="form['name'].errors?.['pattern']">-->
-<!--                      *Your name should contain alphabet letters !-->
-<!--                    </small>-->
-<!--                  </span>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="row ">-->
-<!--              <div class="col-sm-12">-->
-<!--                <div class="form-group p-2">-->
-<!--                  <input-->
-<!--                    type="password"-->
-<!--                    formControlName="password"-->
-<!--                    password="password" id="password"-->
-<!--                    class="form-control"-->
-<!--                    placeholder="Name"-->
-<!--                    required style="-->
-<!--                      border: none;-->
-<!--                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);-->
-<!--                      height: 50px;-->
-<!--                    "/>-->
-<!--                  <span *ngIf="-->
-<!--                      submitted ||-->
-<!--                      form['password'].dirty ||-->
-<!--                      (form['password'].touched && form['password'].invalid)-->
-<!--                    "-->
-<!--                        class="info-msg text-danger"-->
-<!--                  >-->
-<!--                    <small-->
-<!--                      *ngIf="form['password'].errors &&-->
-<!--                                form['password'].errors?.['required']"-->
-<!--                    >-->
-<!--                      *Name is required !-->
-<!--                    </small>-->
-<!--                    <small *ngIf="form['password'].errors?.['minlength']">-->
-<!--                      *You password must have atleast 3 characters !-->
-<!--                    </small>-->
-<!--                    <small *ngIf="form['password'].errors?.['maxlength']">-->
-<!--                      *Your password should not be more than 60 chracters !-->
-<!--                    </small>-->
-<!--                    <small *ngIf="form['password'].errors?.['pattern']">-->
-<!--                      *Your password should contain alphabet letters !-->
-<!--                    </small>-->
-<!--                  </span>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="row mt">-->
-<!--              <div class="col-sm-2">-->
-<!--                <button type="button" class="btn btn-success" (click)="onUserLogin()">-->
-<!--                  Login-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
-<!--</div>-->

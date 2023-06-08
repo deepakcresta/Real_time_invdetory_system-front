@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BaseModule} from "./base_modules/base.module";
 import {AuthModule} from "./auth_modules/auth.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {FeatureModule} from "./feature_modules/feature.module";
 
 @NgModule({
   declarations: [
@@ -14,9 +14,9 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BaseModule,
     AuthModule,
     ReactiveFormsModule,
+    FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
