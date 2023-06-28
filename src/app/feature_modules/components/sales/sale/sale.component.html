@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-sm-6">
-    <h5>All Inventory Stock List</h5>
+    <h5>All Sale List</h5>
   </div>
-  <div class="col-sm-6">
-    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New
-    </button>
-  </div>
-  <hr class="my-2"/>
+<!--  <div class="col-sm-6">-->
+<!--    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <hr class="my-2"/>-->
 </div>
 
 <div class="row">
@@ -27,9 +27,9 @@
         <th>
           <label class="sb_label">Category</label>
         </th>
-        <th>
-          <label class="sb_label">Actions</label>
-        </th>
+<!--        <th>-->
+<!--          <label class="sb_label">Actions</label>-->
+<!--        </th>-->
       </tr>
       </thead>
       <tbody>
@@ -38,13 +38,19 @@
         <td>{{sale.stockName}}</td>
         <td>{{sale.quantity}}</td>
         <td>{{sale.category}}</td>
-        <td>
-          <button class="btn btn-sm btn-primary">View</button>
-          <button class="btn btn-sm btn-info">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="onDeleteClick()">Delete</button>
-        </td>
       </tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
 </div>

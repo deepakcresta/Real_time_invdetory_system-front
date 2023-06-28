@@ -81,15 +81,19 @@
                   </span>
             </td>
             <td class="sb_sm_col">
-              <input
-                type="text"
-                autocomplete="off"
-                id="category"
-                name="category"
-                class="form-control form-control-sm sb_input"
-                formControlName="category"
-                placeholder="Category"
-              />
+<!--              <input-->
+<!--                type="text"-->
+<!--                autocomplete="off"-->
+<!--                id="category"-->
+<!--                name="category"-->
+<!--                class="form-control form-control-sm sb_input"-->
+<!--                formControlName="category"-->
+<!--                placeholder="Category"-->
+<!--              />-->
+              <select>
+                <option value="">  </option>
+                <option value="">Liquid</option>
+              </select>
               <span
                 *ngIf="submitted || stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.touched || stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.dirty && stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.invalid"
                 class="info-msg text-danger">

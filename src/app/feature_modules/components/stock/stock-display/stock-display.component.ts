@@ -55,7 +55,7 @@ export class StockDisplayComponent implements OnInit {
   }
 
   onNewAdd() {
-    this.router.navigate(['/stock-entry']);
+    this.router.navigate(['feature-modules/stock-entry']);
   }
 
   listAllStocks() {

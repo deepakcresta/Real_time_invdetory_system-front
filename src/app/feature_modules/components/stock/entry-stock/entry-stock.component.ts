@@ -63,23 +63,16 @@ export class EntryStockComponent implements OnInit {
           this.isSubmitting = false;
           console.log("mero data heram hia ta",response);
           console.log('Stock added Successfully.');
-          this.router.navigate(['/display-stock'])
-          this.reloadComponent();
+          this.router.navigate(['/feature-modules/display-stock'])
 
         },
         (error: any) => {
           this.isSubmitting = false;
-          this.router.navigate(['/display-stock']);
+          this.router.navigate(['feature-modules/display-stock']);
           console.log('Error on adding the stock');
         }
       );
     }
-  }
-  reloadComponent() {
-    let currentUrl = this.router.url;
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([currentUrl]);
   }
 
 }

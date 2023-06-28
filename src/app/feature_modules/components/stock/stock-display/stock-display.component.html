@@ -38,10 +38,10 @@
         <td>{{stock.stockName}}</td>
         <td>{{stock.quantity}}</td>
         <td>{{stock.category}}</td>
-        <td>
-          <button class="btn btn-sm btn-primary">View</button>
-          <button class="btn btn-sm btn-info">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="onDeleteClick()">Delete</button>
+        <td class="d-flex justify-content-center">
+          <button class=" btn btn-sm btn-primary">View</button>
+          <button class="ms-3 btn btn-sm btn-info">Edit</button>
+          <button class="ms-3 btn btn-sm btn-danger" (click)="onDeleteClick()">Delete</button>
         </td>
       </tr>
       </tbody>

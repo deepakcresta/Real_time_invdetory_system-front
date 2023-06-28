@@ -30,6 +30,7 @@ export class SharedService {
     );
   }
   // Adding the contact of contact form to contact data base
+
   addContact(contact: any): Observable<any> {
     console.log(contact);
     return this.httpClient.post<any>(
