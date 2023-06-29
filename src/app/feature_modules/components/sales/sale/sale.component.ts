@@ -10,31 +10,14 @@ import {SharedService} from "../../../service/shared.service";
   styleUrls: ['./sale.component.scss']
 })
 export class SaleComponent implements OnInit {
-  // allSaleList: Array<any> = new Array<any>();
-
-  allSaleList =[
+  salesList=[
     {
-    stockName:" Rice",
-    category:"normal goods",
-    quantity:"1"
-  },
-    {
-      stockName: " Rice",
-      category: "normal goods",
-      quantity: "1"
-    },
-    {
-      stockName: " Rice",
-      category: "normal goods",
-      quantity: "1"
-    },
-    {
-      stockName: " Rice",
-      category: "normal goods",
-      quantity: "1"
+      tableNumber:"1231",
+      orderItems:"Chicken Momo",
+      quantity:1,
+      category:"momo",
+      orderAt:'1:00'
     }
-
-
   ]
   submitted:boolean = false;
   isSubmitting: boolean | undefined;
@@ -63,7 +46,7 @@ export class SaleComponent implements OnInit {
     this.sharedService.listAllSales().subscribe({
       next: (response: any) => {
         console.log("all stocks listed: ", response);
-        this.allSaleList = response.users;
+        this.salesList = response.users;
       },
       error: (error: any) => {
         console.log("unable to list all users: ", error);

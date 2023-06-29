@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {BaseLayoutComponent} from "./base-layout/base-layout/base-layout.component";
+import { CurrentStockComponent } from './components/stock/current-stock/current-stock.component';
+import { DangersStockComponent } from './components/stock/dangers-stock/dangers-stock.component';
+import { TotalStockComponent } from './components/stock/total-stock/total-stock.component';
 
 
 
@@ -27,7 +30,10 @@ import {BaseLayoutComponent} from "./base-layout/base-layout/base-layout.compone
     StockDisplayComponent,
     SaleComponent,
     ContactUsComponent,
-    BaseLayoutComponent
+    BaseLayoutComponent,
+    CurrentStockComponent,
+    DangersStockComponent,
+    TotalStockComponent
   ],
   imports: [
     CommonModule,

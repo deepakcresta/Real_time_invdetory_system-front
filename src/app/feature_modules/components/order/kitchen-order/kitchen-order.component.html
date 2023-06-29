@@ -1,5 +1,5 @@
-<div class="p-3 mb-2 bg-info text-light">
-  <div class="col-sm-6 text-bg-info">
+<div class="p-3 mb-2 bg-warning text-dark">
+  <div class="col-sm-6 text-bg-danger">
     <h5>Danger Stock Inventory</h5>
   </div>
   <!--  <div class="col-sm-6">-->
@@ -38,7 +38,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let stock of salesList; let i = index">
+        <tr *ngFor="let stock of orderList; let i = index">
           <td>{{i + 1}}</td>
           <td>{{stock.tableNumber}}</td>
           <td>{{stock?.orderItems}}</td>
