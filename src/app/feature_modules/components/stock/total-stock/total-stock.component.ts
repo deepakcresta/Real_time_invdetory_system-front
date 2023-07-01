@@ -76,13 +76,14 @@ export class TotalStockComponent implements OnInit {
   }
 
 
-  onDeleteClick() {
-    //   this.sharedService.deleteUserById(id).subscribe(
-    //     {
-    //       next: (response: any) => {
-    //         this.listAllStocks();
-    //       }
-    //     }
-    //   );
+  onDeleteClick(id:number) {
+      this.sharedService.deleteUserById(id).subscribe(
+        {
+          next: (response: any) => {
+            this.listAllStocks();
+            console.log(response)
+          }
+        }
+      );
   }
 }

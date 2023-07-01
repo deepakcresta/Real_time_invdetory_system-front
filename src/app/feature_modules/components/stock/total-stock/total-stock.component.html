@@ -31,6 +31,12 @@
           <label class="sb_label">Brand Name</label>
         </th>
         <th>
+          <label class="sb_label">Manufacturing Date</label>
+        </th>
+        <th>
+          <label class="sb_label">Expiry Date</label>
+        </th>
+        <th>
           <label class="sb_label">Created At</label>
         </th>
         <th>
@@ -48,12 +54,14 @@
         <td>{{stock?.quantity? stock?.quantity: "Not Available"}}</td>
         <td>{{stock?.category ? stock?.category : "Not Available"}}</td>
         <td>{{stock?.brandName ? stock?.brandName: "Not Available"}}</td>
-        <td>{{stock?.createdA ? stock?.createdA: "Not Available"}}</td>
-        <td>{{stock?.manufacturingDat? stock?.manufacturingDat: "Not Available"}}</td>
+        <td>{{stock?.manufacturingDate? stock?.manufacturingDate :"Not Available"}}</td>
+        <td>{{stock?.expiryDate? stock?.expiryDate: "Not Available"}}</td>
+        <td>{{stock.modifiedAt ? stock?.createdA: "Not Available"}}</td>
+        <td>{{stock?.manufacturingDate? stock?.manufacturingDat: "Not Available"}}</td>
         <td class="d-flex justify-content-center">
           <button class=" btn btn-sm btn-primary">View</button>
           <button class="ms-3 btn btn-sm btn-info">Edit</button>
-          <button class="ms-3 btn btn-sm btn-danger" (click)="onDeleteClick()">Delete</button>
+          <button class="btn btn-sm btn-danger" (click)="onDeleteClick(stock.id)">Delete</button>
         </td>
       </tr>
       </tbody>

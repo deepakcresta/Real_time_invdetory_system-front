@@ -6,6 +6,7 @@ export class StockResponseModalModal {
   manufacturingDate: any | undefined
   expiryDate: any | undefined;
   unit: string|undefined;
-
+  createAt:any|undefined;
+  modifiedAt:any|undefined;
 
 }

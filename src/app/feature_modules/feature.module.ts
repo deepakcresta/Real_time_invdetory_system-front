@@ -18,6 +18,7 @@ import {BaseLayoutComponent} from "./base-layout/base-layout/base-layout.compone
 import { CurrentStockComponent } from './components/stock/current-stock/current-stock.component';
 import { DangersStockComponent } from './components/stock/dangers-stock/dangers-stock.component';
 import { TotalStockComponent } from './components/stock/total-stock/total-stock.component';
+import { OrderListComponent } from './components/order/order-list/order-list.component';
 
 
 
@@ -33,7 +34,8 @@ import { TotalStockComponent } from './components/stock/total-stock/total-stock.
     BaseLayoutComponent,
     CurrentStockComponent,
     DangersStockComponent,
-    TotalStockComponent
+    TotalStockComponent,
+    OrderListComponent
   ],
   imports: [
     CommonModule,

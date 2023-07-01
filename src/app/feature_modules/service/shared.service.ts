@@ -14,7 +14,8 @@ export class SharedService {
 
   baseUrl: string = environment.baseUrl;
   stockApiEndPoint: string = 'stock';
-  contactApiEndPoint: string = 'contact'
+  contactApiEndPoint: string = 'contact';
+  orderApiEndPoint: string = 'order';
 
 
   constructor(private httpClient: HttpClient) {
@@ -23,12 +24,13 @@ export class SharedService {
 
   // Adding the stock
   addStock(stock: any): Observable<any> {
-    console.log("stock heram ta",stock);
+    console.log("heram ta", stock);
     return this.httpClient.post<any>(
       this.baseUrl.concat(this.stockApiEndPoint),
       stock
     );
   }
+
   // Adding the contact of contact form to contact data base
 
   addContact(contact: any): Observable<any> {
@@ -38,12 +40,21 @@ export class SharedService {
       contact
     );
   }
+
+  orderFood(order: any): Observable<any> {
+    console.log("order heram ta", order);
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.orderApiEndPoint),
+      order
+    );
+  }
+
   listAllStocks(): Observable<any> {
     return this.httpClient.get(environment.baseUrl + 'stock');
   }
 
   deleteUserById(id: number): Observable<any> {
-    return this.httpClient.delete(environment.baseUrl + 'stock' + `${id}`);
+    return this.httpClient.delete(environment.baseUrl + 'stock/' + `${id}`);
   }
 
   //sales
@@ -54,4 +65,9 @@ export class SharedService {
   deleteSaleById(id: number): Observable<any> {
     return this.httpClient.delete(environment.baseUrl + 'sale' + `${id}`);
   }
+
+  listAllOrders(): Observable<any> {
+    return this.httpClient.get(environment.baseUrl + 'order');
+  }
+
 }
