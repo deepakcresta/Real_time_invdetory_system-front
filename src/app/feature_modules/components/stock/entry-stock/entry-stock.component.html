@@ -141,9 +141,9 @@
     </div>
     <div class="col-sm-4">
       <div class="form-group">
-        <label>Stock Unit</label>
+        <label>Quantity</label>
         <input name="quantity" formControlName="quantity" id="quantity" class="form-control form-control-sm"
-               placeholder=" Stock Unit"/>
+               placeholder=" Quantity"/>
 <!--        <span-->
 <!--          *ngIf="submitted || form['quantity'].touched || form['quantity'].dirty && form['quantity'].invalid"-->
 <!--          class="info-msg text-danger">-->
@@ -151,6 +151,25 @@
 <!--                *ngIf="form['quantity'].errors && form['quantity'].errors?.['required']">This is the required field.</small>-->
 <!--              <small *ngIf="form['quantity'].errors && form['quantity'].errors?.['minlength']">Should have at least 4 characters.</small>-->
 <!--            </span>-->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label> Unit</label>
+        <br>
+        <select ormControlName="unit" class="form-control form-control-sm" placeholde="Unit">
+          <option value="">KG</option>
+          <option value=""> Gram</option>
+          <option value="">Liter</option>
+          <option value="">Milligram</option>
+        </select>
+        <!--        <span-->
+        <!--          *ngIf="submitted || form['unit'].touched || form['unit'].dirty && form['unit'].invalid"-->
+        <!--          class="info-msg text-danger">-->
+        <!--              <small-->
+        <!--                *ngIf="form['uni'].errors && form['uni'].errors?.['required']">This is the required field.</small>-->
+        <!--              <small *ngIf="form['unit'].errors && form['uni'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+        <!--            </span>-->
       </div>
     </div>
     <div class="col-sm-4">

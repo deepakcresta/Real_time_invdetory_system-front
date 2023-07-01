@@ -44,12 +44,12 @@
       <tbody>
       <tr *ngFor="let stock of allStockList; let i = index">
         <td>{{i + 1}}</td>
-        <td>{{stock.stockName}}</td>
-        <td>{{stock?.category}}</td>
-        <td>{{stock.quantity}}</td>
-        <td>{{stock.category}}</td>
-        <td>{{stock?.createdA}}</td>
-        <td>{{stock?.createAt}}</td>
+        <td>{{stock?.stockName? stock.stockName: "Not Available"}}</td>
+        <td>{{stock?.quantity? stock?.quantity: "Not Available"}}</td>
+        <td>{{stock?.category ? stock?.category : "Not Available"}}</td>
+        <td>{{stock?.brandName ? stock?.brandName: "Not Available"}}</td>
+        <td>{{stock?.createdA ? stock?.createdA: "Not Available"}}</td>
+        <td>{{stock?.manufacturingDat? stock?.manufacturingDat: "Not Available"}}</td>
         <td class="d-flex justify-content-center">
           <button class=" btn btn-sm btn-primary">View</button>
           <button class="ms-3 btn btn-sm btn-info">Edit</button>

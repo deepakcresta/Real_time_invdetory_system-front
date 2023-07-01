@@ -35,7 +35,8 @@ export class EntryStockComponent implements OnInit {
       brandName: [undefined],
       category: [undefined],
       expiryDate: [undefined],
-      manufacturingDate: [undefined]
+      manufacturingDate: [undefined],
+      unit:[undefined],
 
     });
   }

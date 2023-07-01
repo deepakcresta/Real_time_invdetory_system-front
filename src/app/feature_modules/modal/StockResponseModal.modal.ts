@@ -5,6 +5,7 @@ export class StockResponseModalModal {
   category: string | undefined;
   manufacturingDate: any | undefined
   expiryDate: any | undefined;
+  unit: string|undefined;
 
 
 }
