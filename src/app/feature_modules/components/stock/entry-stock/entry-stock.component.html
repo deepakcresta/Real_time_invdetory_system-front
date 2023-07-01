@@ -128,28 +128,28 @@
     <div class="col-sm-4">
       <div class="form-group">
         <label>Stock Name</label>
-        <input type="text" formControlName="stockNane" name="stockNane" id="stockNane"
+        <input type="text" formControlName="stockName" name="stockName" id="stockName"
                class="form-control form-control-sm" placeholder="Enter Stock Name"/>
 <!--        <span-->
-<!--          *ngIf="submitted || form['stockNane'].touched || form['stockNane'].dirty && form['stockNane'].invalid"-->
+<!--          *ngIf="submitted || form['stockName'].touched || form['stockName'].dirty && form['stockName'].invalid"-->
 <!--          class="info-msg text-danger">-->
 <!--              <small-->
-<!--                *ngIf="form['stockNane'].errors && form['stockNane'].errors?.['required']">This is the required field.</small>-->
-<!--              <small *ngIf="form['stockNane'].errors && form['stockNane'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+<!--                *ngIf="form['stockName'].errors && form['stockName'].errors?.['required']">This is the required field.</small>-->
+<!--              <small *ngIf="form['stockName'].errors && form['stockName'].errors?.['minlength']">Should have at least 4 characters.</small>-->
 <!--            </span>-->
       </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
         <label>Stock Unit</label>
-        <input name="stockUnit" formControlName="stockUnit" id="stockUnit" class="form-control form-control-sm"
+        <input name="quantity" formControlName="quantity" id="quantity" class="form-control form-control-sm"
                placeholder=" Stock Unit"/>
 <!--        <span-->
-<!--          *ngIf="submitted || form['stockUnit'].touched || form['stockUnit'].dirty && form['stockUnit'].invalid"-->
+<!--          *ngIf="submitted || form['quantity'].touched || form['quantity'].dirty && form['quantity'].invalid"-->
 <!--          class="info-msg text-danger">-->
 <!--              <small-->
-<!--                *ngIf="form['stockUnit'].errors && form['stockUnit'].errors?.['required']">This is the required field.</small>-->
-<!--              <small *ngIf="form['stockUnit'].errors && form['stockUnit'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+<!--                *ngIf="form['quantity'].errors && form['quantity'].errors?.['required']">This is the required field.</small>-->
+<!--              <small *ngIf="form['quantity'].errors && form['quantity'].errors?.['minlength']">Should have at least 4 characters.</small>-->
 <!--            </span>-->
       </div>
     </div>
@@ -171,7 +171,7 @@
       <div class="form-group">hr
         <label> Stock Category</label>
         <br>
-        <select ormControlName="stockCategory" class="form-control form-control-sm" placeholde="Chose Category">
+        <select ormControlName="category" class="form-control form-control-sm" placeholde="Chose Category">
           <option value=""> Normal Goods</option>
           <option value=""> Spices Food</option>
           <option value="">Liquid</option>

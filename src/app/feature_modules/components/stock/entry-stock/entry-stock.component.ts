@@ -3,6 +3,7 @@ import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {SharedService} from "../../../service/shared.service";
+import {StockResponseModalModal} from "../../../modal/StockResponseModal.modal";
 
 @Component({
   selector: 'deepak-entry-stock',
@@ -29,10 +30,10 @@ export class EntryStockComponent implements OnInit {
 
   buildForm() {
     this.stockEntryForm = this.formBuilder.group({
-      stockNane: [undefined],
-      stockUnit: [undefined],
+      stockName: [undefined],
+      quantity: [undefined],
       brandName: [undefined],
-      stockType: [undefined],
+      category: [undefined],
       expiryDate: [undefined],
       manufacturingDate: [undefined]
 
@@ -53,7 +54,7 @@ export class EntryStockComponent implements OnInit {
       if (this.stockEntryForm.invalid) {
         return;
       }
-      this.sharedService.addStock(this.stockEntryForm.value).subscribe({
+      this.sharedService.addStock(this.stockEntryForm.value as StockResponseModalModal).subscribe({
         next: (value: any) => {
           this.stockEntryForm.reset();
           this.location.back();
