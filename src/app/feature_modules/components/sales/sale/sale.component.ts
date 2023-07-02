@@ -10,16 +10,9 @@ import {SharedService} from "../../../service/shared.service";
   styleUrls: ['./sale.component.scss']
 })
 export class SaleComponent implements OnInit {
-  salesList=[
-    {
-      tableNumber:"1231",
-      orderItems:"Chicken Momo",
-      quantity:1,
-      category:"momo",
-      orderAt:'1:00'
-    }
-  ]
-  submitted:boolean = false;
+
+  orderList: Array<any> = new Array<any>();
+  submitted: boolean = false;
   isSubmitting: boolean | undefined;
 
 
@@ -27,11 +20,12 @@ export class SaleComponent implements OnInit {
     private formBuilder: FormBuilder,
     private location: Location,
     private router: Router,
-    private  sharedService: SharedService,
-  ) { }
+    private sharedService: SharedService,
+  ) {
+  }
 
   ngOnInit(): void {
-    this.listAllSales();
+    this.listAllStocks();
   }
 
   onGoBack() {
@@ -39,14 +33,15 @@ export class SaleComponent implements OnInit {
   }
 
   onNewAdd() {
-    this.router.navigate(['/stock-entry']);
+    this.router.navigate(['feature-modules/kitchen-order']);
   }
 
-  listAllSales() {
-    this.sharedService.listAllSales().subscribe({
+  listAllStocks() {
+    this.sharedService.listAllOrders().subscribe({
       next: (response: any) => {
         console.log("all stocks listed: ", response);
-        this.salesList = response.users;
+        this.orderList = response?.orders;
+        console.log("al ",this.orderList);
       },
       error: (error: any) => {
         console.log("unable to list all users: ", error);
@@ -54,14 +49,14 @@ export class SaleComponent implements OnInit {
     });
   }
 
+
   onDeleteClick() {
-  //   this.sharedService.deleteSaleById(id).subscribe(
-  //     {
-  //       next: (response: any) => {
-  //         this.listAllSales();
-  //       }
-  //     }
-  //   );
+    //   this.sharedService.deleteUserById(id).subscribe(
+    //     {
+    //       next: (response: any) => {
+    //         this.listAllStocks();
+    //       }
+    //     }
+    //   );
   }
 }
-

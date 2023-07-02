@@ -7,6 +7,7 @@ import {AuthModule} from "./auth_modules/auth.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FeatureModule} from "./feature_modules/feature.module";
 import { KitchenOrderComponent } from './feature_modules/components/order/kitchen-order/kitchen-order.component';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -18,9 +19,12 @@ import { KitchenOrderComponent } from './feature_modules/components/order/kitche
     AppRoutingModule,
     AuthModule,
     ReactiveFormsModule,
-    FeatureModule
+    FeatureModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    // provideToastr(),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

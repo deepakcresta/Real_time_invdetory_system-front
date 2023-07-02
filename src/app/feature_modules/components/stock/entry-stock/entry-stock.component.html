@@ -157,7 +157,7 @@
       <div class="form-group">
         <label> Unit</label>
         <br>
-        <select ormControlName="unit" class="form-control form-control-sm" placeholde="Unit">
+        <select formControlName="unit" class="form-control form-control-sm" placeholde="Unit">
           <option value="">KG</option>
           <option value=""> Gram</option>
           <option value="">Liter</option>
@@ -187,13 +187,14 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class="form-group">hr
+      <div class="form-group">
         <label> Stock Category</label>
         <br>
-        <select ormControlName="category" class="form-control form-control-sm" placeholde="Chose Category">
+        <select formControlName="category" class="form-control form-control-sm" placeholde="Chose Category">
           <option value=""> Normal Goods</option>
           <option value=""> Spices Food</option>
           <option value="">Liquid</option>
+          <option value=""> Vegetables</option>
         </select>
 <!--        <span-->
 <!--          *ngIf="submitted || form['stockCategory'].touched || form['stockCategory'].dirty && form['stockCategory'].invalid"-->
