@@ -1,0 +1,109 @@
+<div class="row">
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<div class="row">
+  <div class="col-sm-12 d-flex justify-content-center">
+
+    <h5><strong> Menu Form</strong></h5>
+  </div>
+  <!--  <hr class="my-2"/>-->
+</div>
+
+<form [formGroup]="menuForm" class="users_fields">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label>Menu Name</label>
+        <input type="text" formControlName="menuName" name="menuName" id="menuName"
+               class="form-control form-control-sm" placeholder="Enter Stock Name"/>
+        <span
+          *ngIf="submitted || form['menuName'].touched || form['menuName'].dirty && form['menuName'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['menuName'].errors && form['menuName'].errors?.['required']">This is the required field.</small>
+                    </span>
+      </div>
+    </div>
+
+    <div class="col-sm-4 form-field">
+      <div class="form-group">
+        <ng-select
+          [items]="dropdownOptions"
+          bindLabel="label"
+          bindValue="value"
+          placeholder="Chose Menu Category"
+          formControlName="unit">
+        </ng-select>
+        <span
+          *ngIf="submitted || form['unit']?.dirty && form['unit']?.invalid"
+          class="info-msg text-danger">
+            <small
+              *ngIf="form['unit']?.errors && form['unit'].errors?.['required']">
+              Menu Type is required.
+            </small>
+          </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5> Add Menu Credentials</h5>
+      <hr>
+    </div>
+  </div>
+
+
+  <ng-container formArrayName="menusCredentials"  *ngFor="let data of getContactForm?.controls; let i = index">
+    <div class="row mb-3" [formGroupName]="i">
+      <div class="col-sm-12">
+        {{i++1}}.Credentials.
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>credentials Name: <span class="text-danger">*</span> </label>
+          <input type="text" name="credentialName" id="credentialName" formControlName="credentialName" placeholder="Credentials Name" class="form-control" />
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Quantity: <span class="text-danger">*</span> </label>
+          <input type="text" name="quantity" id="quantity" formControlName="quantity" placeholder="Quantity" class="form-control" />
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <ng-select
+            [items]="units"
+            bindLabel="label"
+            bindValue="value"
+            placeholder="Unit"
+            formControlName="unit">
+          </ng-select>
+          <span
+            *ngIf="submitted || form['unit']?.dirty && form['unit']?.invalid"
+            class="info-msg text-danger">
+            <small
+              *ngIf="form['unit']?.errors && form['unit'].errors?.['required']">
+              Unit is required.
+            </small>
+          </span>
+        </div>
+      </div>
+    </div>
+    <span class="badge bg-danger float-end" *ngIf="getContactForm.length > 1" (click)="deleteContactForm(i)">Delete</span>
+  </ng-container>
+  <div class="row mb-3">
+    <div class="col-sm-12">
+      <span class="badge bg-secondary" (click)="addMore()">Add More</span>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <button (click)="onSaveMenu()" class="btn btn-dark">Save</button>
+    </div>
+  </div>
+
+</form>
+
