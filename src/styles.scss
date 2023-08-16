@@ -58,7 +58,7 @@ body {
   min-width: 250px;
   max-width: 250px;
   border-radius: 5px;
-  border-color: plum;
+  border-color: grey;
   border-style: solid;
 
 }
@@ -120,4 +120,5 @@ body {
   //width: 50%;
   //margin-right: 10%;
 }
+@import "~@ng-select/ng-select/themes/material.theme.css";
 

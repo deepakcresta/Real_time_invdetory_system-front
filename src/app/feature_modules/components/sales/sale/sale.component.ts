@@ -50,13 +50,16 @@ export class SaleComponent implements OnInit {
   }
 
 
-  onDeleteClick() {
-    //   this.sharedService.deleteUserById(id).subscribe(
-    //     {
-    //       next: (response: any) => {
-    //         this.listAllStocks();
-    //       }
-    //     }
-    //   );
+  // onDeleteClick() {
+  //     this.sharedService.deleteUserById(id).subscribe(
+  //       {
+  //         next: (response: any) => {
+  //           this.listAllStocks();
+  //         }
+  //       }
+  //     );
+  // }
+  onNavigateBack(){
+    this.location.back();
   }
 }

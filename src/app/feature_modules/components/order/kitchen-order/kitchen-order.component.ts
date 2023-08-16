@@ -22,7 +22,7 @@ export class KitchenOrderComponent implements OnInit {
     private location: Location,
     private router: Router,
     private sharedService: SharedService,
-    private  toastService: ToastrService,
+    private toastService: ToastrService,
   ) {
   }
 
@@ -50,7 +50,7 @@ export class KitchenOrderComponent implements OnInit {
     if (this.foodOrderForm.invalid) {
       return;
     }
-    this.sharedService.orderFood(this.foodOrderForm.value ).subscribe({
+    this.sharedService.orderFood(this.foodOrderForm.value).subscribe({
       next: (value: any) => {
         this.foodOrderForm.reset();
         this.location.back();
@@ -64,6 +64,10 @@ export class KitchenOrderComponent implements OnInit {
         this.router.navigate(['/feature-modules/order-list']);
       }
     });
+  }
+
+  onNavigateBack() {
+    this.location.back();
   }
 
 }

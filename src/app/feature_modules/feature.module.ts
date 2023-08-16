@@ -19,6 +19,10 @@ import { CurrentStockComponent } from './components/stock/current-stock/current-
 import { DangersStockComponent } from './components/stock/dangers-stock/dangers-stock.component';
 import { TotalStockComponent } from './components/stock/total-stock/total-stock.component';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
+import { AddMenuComponent } from './components/menu/add-menu/add-menu.component';
+import {NgSelectModule} from "@ng-select/ng-select";
+import { MenuListComponent } from './components/menu/menu-list/menu-list.component';
+import { AddRespectiveMenuCredentialsComponent } from './components/menu/add-respective-menu-credentials/add-respective-menu-credentials.component';
 
 
 
@@ -35,7 +39,10 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
     CurrentStockComponent,
     DangersStockComponent,
     TotalStockComponent,
-    OrderListComponent
+    OrderListComponent,
+    AddMenuComponent,
+    MenuListComponent,
+    AddRespectiveMenuCredentialsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +51,8 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgSelectModule,
   ]
 })
 export class FeatureModule { }

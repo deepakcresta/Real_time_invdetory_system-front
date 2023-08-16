@@ -1,124 +1,9 @@
-<!--    <ng-container formArrayName="stockEntryDetails"-->
-<!--                  *ngFor="let data of stockEntryDetails.controls; let i = index">-->
-<!--      <div [formGroupName]="i">-->
-<!--        <table class="table table-centered table-striped table-hover table-bordered table-nowrap mb-0 mt-3"-->
-<!--               style="border-collapse: collapse; border-spacing: 0; width: 100%;">-->
-<!--          <thead class="bg-light">-->
-<!--          <tr>-->
-<!--            <th>-->
-<!--              <label class="sb_label">SN. No</label>-->
-<!--            </th>-->
-<!--            <th>-->
-<!--              <label class="sb_label">Stock Name</label>-->
-<!--            </th>-->
-<!--            <th>-->
-<!--              <label class="sb_label">Quantity</label>-->
-<!--            </th>-->
-<!--            <th>-->
-<!--              <label class="sb_label">Category</label>-->
-<!--            </th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--          <tr>-->
-<!--            <td class="sb_sm_col">-->
-<!--              <input-->
-<!--                type="text"-->
-<!--                autocomplete="off"-->
-<!--                id="snNo"-->
-<!--                name="snNo"-->
-<!--                class="form-control form-control-sm sb_input"-->
-<!--                formControlName="snNo"-->
-<!--                placeholder="SN. No."-->
-<!--              />-->
-<!--              <span-->
-<!--                *ngIf="submitted || stockEntryForm.get(['steelSecurityDetails',i, 'snNo'])?.touched || stockEntryForm.get(['steelSecurityDetails',i, 'snNo'])?.dirty && stockEntryForm.get(['steelSecurityDetails',i, 'snNo'])?.invalid"-->
-<!--                class="info-msg text-danger">-->
-<!--                    <small-->
-<!--                      *ngIf="stockEntryForm.get(['steelSecurityDetails',i, 'snNo'])?.errors && stockEntryForm.get(['steelSecurityDetails',i, 'snNo'])?.errors?.['required']">-->
-<!--                      SN. No-->
-<!--                    </small>-->
-<!--                  </span>-->
-<!--            </td>-->
-<!--            <td class="sb_sm_col">-->
-<!--              <input-->
-<!--                type="text"-->
-<!--                autocomplete="off"-->
-<!--                id="stockName"-->
-<!--                name="stockName"-->
-<!--                class="form-control form-control-sm sb_input"-->
-<!--                formControlName="stockName"-->
-<!--                placeholder="Stock Name"-->
-<!--              />-->
-<!--              <span-->
-<!--                *ngIf="submitted || stockEntryForm.get(['steelSecurityDetails',i, 'stockName'])?.touched || stockEntryForm.get(['steelSecurityDetails',i, 'stockName'])?.dirty && stockEntryForm.get(['steelSecurityDetails',i, 'stockName'])?.invalid"-->
-<!--                class="info-msg text-danger">-->
-<!--                    <small-->
-<!--                      *ngIf="stockEntryForm.get(['steelSecurityDetails',i, 'stockName'])?.errors && stockEntryForm.get(['steelSecurityDetails',i, 'stockName'])?.errors?.['required']">-->
-<!--                      Stock Name-->
-<!--                    </small>-->
-<!--                  </span>-->
-<!--            </td>-->
-<!--            <td class="sb_sm_col">-->
-<!--              <input-->
-<!--                type="text"-->
-<!--                autocomplete="off"-->
-<!--                id="quantity"-->
-<!--                name="quantity"-->
-<!--                class="form-control form-control-sm sb_input"-->
-<!--                formControlName="quantity"-->
-<!--                placeholder="Quantity"-->
-<!--              />-->
-<!--              <span-->
-<!--                *ngIf="submitted || stockEntryForm.get(['steelSecurityDetails',i, 'quantity'])?.touched || stockEntryForm.get(['steelSecurityDetails',i, 'quantity'])?.dirty && stockEntryForm.get(['steelSecurityDetails',i, 'quantity'])?.invalid"-->
-<!--                class="info-msg text-danger">-->
-<!--                    <small-->
-<!--                      *ngIf="stockEntryForm.get(['steelSecurityDetails',i, 'quantity'])?.errors && stockEntryForm.get(['steelSecurityDetails',i, 'quantity'])?.errors?.['required']">-->
-<!--                      Quantity-->
-<!--                    </small>-->
-<!--                  </span>-->
-<!--            </td>-->
-<!--            <td class="sb_sm_col">-->
-<!--&lt;!&ndash;              <input&ndash;&gt;-->
-<!--&lt;!&ndash;                type="text"&ndash;&gt;-->
-<!--&lt;!&ndash;                autocomplete="off"&ndash;&gt;-->
-<!--&lt;!&ndash;                id="category"&ndash;&gt;-->
-<!--&lt;!&ndash;                name="category"&ndash;&gt;-->
-<!--&lt;!&ndash;                class="form-control form-control-sm sb_input"&ndash;&gt;-->
-<!--&lt;!&ndash;                formControlName="category"&ndash;&gt;-->
-<!--&lt;!&ndash;                placeholder="Category"&ndash;&gt;-->
-<!--&lt;!&ndash;              />&ndash;&gt;-->
-<!--              <select>-->
-<!--                <option value="">  </option>-->
-<!--                <option value="">Liquid</option>-->
-<!--              </select>-->
-<!--              <span-->
-<!--                *ngIf="submitted || stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.touched || stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.dirty && stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.invalid"-->
-<!--                class="info-msg text-danger">-->
-<!--                    <small-->
-<!--                      *ngIf="stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.errors && stockEntryForm.get(['steelSecurityDetails',i, 'category'])?.errors?.['required']">-->
-<!--                      Category is required.-->
-<!--                    </small>-->
-<!--                  </span>-->
-<!--            </td>-->
-
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--&lt;!&ndash;      <div class="col-sm-12">&ndash;&gt;-->
-<!--&lt;!&ndash;        <button&ndash;&gt;-->
-<!--&lt;!&ndash;          ngbTooltip="Add More Stock"&ndash;&gt;-->
-<!--&lt;!&ndash;          data-bs-toggle="tooltip"&ndash;&gt;-->
-<!--&lt;!&ndash;          class="btn sb_btn other_btn sb-add-more-vertical-padding float-end ms-3"&ndash;&gt;-->
-<!--&lt;!&ndash;          + Add More Stock>&ndash;&gt;-->
-<!--&lt;!&ndash;        </button>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--    </ng-container>-->
-
 <div class="row">
-  <div class="col-sm-12 d-flex justify-content-center">
-    <h5><strong> Stock Entry Form</strong></h5>
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<div class="row mt-3">
+  <div class="col-sm-12 d-flex justify-content-center ">
+    <h5><strong> Stock Entry Form </strong></h5>
   </div>
   <!--  <hr class="my-2"/>-->
 </div>
@@ -157,25 +42,25 @@
       <div class="form-group">
         <label> Unit</label>
         <br>
-        <select formControlName="unit" class="form-control form-control-sm" placeholde="Unit">
+        <select formControlName="quantityUnit" class="form-control form-control-sm" placeholde="Unit">
           <option value="">KG</option>
           <option value=""> Gram</option>
           <option value="">Liter</option>
           <option value="">Milligram</option>
         </select>
         <!--        <span-->
-        <!--          *ngIf="submitted || form['unit'].touched || form['unit'].dirty && form['unit'].invalid"-->
+        <!--          *ngIf="submitted || form['quantityUnit'].touched || form['quantityUnit'].dirty && form['quantityUnit'].invalid"-->
         <!--          class="info-msg text-danger">-->
         <!--              <small-->
         <!--                *ngIf="form['uni'].errors && form['uni'].errors?.['required']">This is the required field.</small>-->
-        <!--              <small *ngIf="form['unit'].errors && form['uni'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+        <!--              <small *ngIf="form['quantityUnit'].errors && form['uni'].errors?.['minlength']">Should have at least 4 characters.</small>-->
         <!--            </span>-->
       </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
         <label>Brand Name</label>
-        <input name="stockType" formControlName="brandName" id="stockType" class="form-control form-control-sm"
+        <input name="brandName" formControlName="brandName" id="brandName" class="form-control form-control-sm"
                placeholder="Brand Name"/>
 <!--        <span-->
 <!--          *ngIf="submitted || form['brandName'].touched || form['brandName'].dirty && form['brandName'].invalid"-->
@@ -191,10 +76,12 @@
         <label> Stock Category</label>
         <br>
         <select formControlName="category" class="form-control form-control-sm" placeholde="Chose Category">
-          <option value=""> Normal Goods</option>
-          <option value=""> Spices Food</option>
-          <option value="">Liquid</option>
-          <option value=""> Vegetables</option>
+          <option value="normalGoods"> Normal Goods</option>
+          <option value="spicesFoods"> Spices Food</option>
+          <option value="liquid">Liquid</option>
+          <option value="vegetables"> Vegetables</option>
+          <option value="nonVeg"> Non-Veg</option>
+          option
         </select>
 <!--        <span-->
 <!--          *ngIf="submitted || form['stockCategory'].touched || form['stockCategory'].dirty && form['stockCategory'].invalid"-->
@@ -211,13 +98,13 @@
         <label>Manufacture Date:</label>
         <input type="text" name="manufacturingDate" formControlName="manufacturingDate" id="manufacturingDate"
                class="form-control form-control-sm" placeholder="Manufacturing Date"/>
-<!--        <span-->
-<!--          *ngIf="submitted || form['manufacturingDate'].touched || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"-->
-<!--          class="info-msg text-danger">-->
-<!--              <small-->
-<!--                *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>-->
-<!--              <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>-->
-<!--            </span>-->
+        <span
+          *ngIf="submitted  || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"
+          class="info-msg text-danger">
+              <small
+                *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>
+              <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>
+            </span>
       </div>
     </div>
     <div class="col-sm-4">

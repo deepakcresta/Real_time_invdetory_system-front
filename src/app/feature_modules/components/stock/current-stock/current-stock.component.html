@@ -1,9 +1,14 @@
 <div class="row">
-  <div class="col-sm-6  text-bg-secondary">
-    <h5>Current Stock Inventory</h5>
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <h5>
+      Current Stock List
+    </h5>
   </div>
   <div class="col-sm-6">
-    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New
+    <button (click)="onNewAdd()" class="btn btn-dark float-end"><i class="fa fa-plus"></i> Add New
     </button>
   </div>
   <hr class="my-2"/>
@@ -51,8 +56,8 @@
         <td>{{stock?.quantity ? stock?.quantity : "Not Available"}}</td>
         <td>{{stock?.category ? stock?.category : "Not Available"}}</td>
         <td>{{stock?.brandName ? stock?.brandName : "Not Available"}}</td>
-        <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "Not Available"}}</td>
-        <td>{{stock?.expiryDate ? stock?.expiryDate : "Not Available"}}</td>
+        <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "Not Available" |date}}</td>
+        <td>{{stock?.expiryDate ? stock?.expiryDate : "Not Available" |date}}</td>
         <td>{{stock.modifiedAt ? stock?.createdA : "Not Available"}}</td>
         <td>{{stock?.manufacturingDate ? stock?.manufacturingDat : "Not Available"}}</td>
       </tr>

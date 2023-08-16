@@ -28,7 +28,7 @@ export class CurrentStockComponent implements OnInit {
     this.listAllStocks();
   }
 
-  onGoBack() {
+  onNavigateBack() {
     this.location.back();
   }
 

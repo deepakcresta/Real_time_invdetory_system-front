@@ -1,9 +1,14 @@
 <div class="row">
-  <div class="col-sm-6  text-bg-success">
-    <h5>All Inventory Stock List</h5>
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<div class="row mt-3">
+  <div class="col-sm-6">
+    <h5>Stock List</h5>
   </div>
   <div class="col-sm-6">
-    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New
+    <!--    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New-->
+    <button (click)="onNewAdd()" class="btn btn-dark float-end"><i class="fa fa-plus"></i> Add New
+
     </button>
   </div>
   <hr class="my-2"/>
@@ -50,18 +55,18 @@
       <tbody>
       <tr *ngFor="let stock of allStockList; let i = index">
         <td>{{i + 1}}</td>
-        <td>{{stock?.stockName? stock.stockName: "Not Available"}}</td>
-        <td>{{stock?.quantity? stock?.quantity: "Not Available"}}</td>
-        <td>{{stock?.category ? stock?.category : "Not Available"}}</td>
-        <td>{{stock?.brandName ? stock?.brandName: "Not Available"}}</td>
-        <td>{{stock?.manufacturingDate? stock?.manufacturingDate :"Not Available"}}</td>
-        <td>{{stock?.expiryDate? stock?.expiryDate: "Not Available"}}</td>
-        <td>{{stock.modifiedAt ? stock?.createdA: "Not Available"}}</td>
-        <td>{{stock?.manufacturingDate? stock?.manufacturingDat: "Not Available"}}</td>
-        <td class="d-flex justify-content-center">
-          <button class=" btn btn-sm btn-primary">View</button>
-          <button class="ms-3 btn btn-sm btn-info">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="onDeleteClick(stock.id)">Delete</button>
+        <td>{{stock?.stockName ? stock.stockName : "N/A"}}</td>
+        <td>{{stock?.quantity ? stock?.quantity : "N/A"}}</td>
+        <td>{{stock?.category ? stock?.category : "N/A"}}</td>
+        <td>{{stock?.brandName ? stock?.brandName : "N/A"}}</td>
+        <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "N/A"}}</td>
+        <td>{{stock?.expiryDate |date}}</td>
+        <td>{{stock.modifiedAt ? stock?.createdA : "N/A"}}</td>
+        <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "N/A"}}</td>
+        <td>
+          <i class="fa fa-eye ms-3" aria-hidden="true"></i>
+          <i style="padding-left:25px;" class="fa fa-pencil" aria-hidden="true" (click)="onEditStock(stock.id)"></i>
+          <i style="padding-left:25px;" class="fa fa-trash" aria-hidden="true" (click)="onDeleteClick(stock.id)"></i>
         </td>
       </tr>
       </tbody>

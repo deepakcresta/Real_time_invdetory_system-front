@@ -10,6 +10,11 @@ import {TotalStockComponent} from "./components/stock/total-stock/total-stock.co
 import {KitchenOrderComponent} from "./components/order/kitchen-order/kitchen-order.component";
 import {OrderListComponent} from "./components/order/order-list/order-list.component";
 import {ContactUsComponent} from "./components/contact-us/contact-us.component";
+import {AddMenuComponent} from "./components/menu/add-menu/add-menu.component";
+import {MenuListComponent} from "./components/menu/menu-list/menu-list.component";
+import {
+  AddRespectiveMenuCredentialsComponent
+} from "./components/menu/add-respective-menu-credentials/add-respective-menu-credentials.component";
 
 const routes: Routes = [
   {
@@ -51,6 +56,18 @@ const routes: Routes = [
       {
         path: 'contact-us',
         component: ContactUsComponent
+      },
+      {
+        path:'menu',
+        component:AddMenuComponent
+      },
+      {
+        path:'menu-list',
+        component:MenuListComponent
+      },
+      {
+        path:'menu-credentials',
+        component:AddRespectiveMenuCredentialsComponent
       }
     ]
   }
