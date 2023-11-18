@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base-layout.component.scss']
 })
 export class BaseLayoutComponent implements OnInit {
-
+  sidebarActive =false
   constructor() { }
 
   ngOnInit(): void {

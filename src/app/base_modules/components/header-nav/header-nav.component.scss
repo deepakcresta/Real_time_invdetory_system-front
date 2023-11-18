@@ -1,24 +1,37 @@
 /* Styles for wrapping the search box */
+#header {
+  display: flex;
+  width: 100%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  box-shadow: 1px 4px 4px;
 
-.main {
-  width: 50%;
-  margin: 50px auto;
-}
+  #logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 
-/* Bootstrap 5 text input with search icon */
+    svg {
+      cursor: pointer;
+    }
+  }
 
-.has-search .form-control {
-  padding-left: 2.375rem;
-}
+  #menu {
+    display: flex;
+    gap: 20px;
 
-.has-search .form-control-feedback {
-  position: absolute;
-  z-index: 2;
-  display: block;
-  width: 2.375rem;
-  height: 2.375rem;
-  line-height: 2.375rem;
-  text-align: center;
-  pointer-events: none;
-  color: #aaa;
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #333;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
 }

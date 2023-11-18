@@ -2,7 +2,7 @@
 <div class="card-body  ">
   <div class="row">
     <div class=" col-sm-11">
-      <h4 class="font-size-30 mt-5 text-center">{{title}}</h4>
+      <h2 class="font-size-30 mt-5 text-center">Restaurant <br> Inventory <br>System</h2>
       <form [formGroup]="loginForm" class="form-horizontal">
         <div class="ms-3 mt-3 ">
           <label>Username</label>
@@ -12,8 +12,8 @@
           <span *ngIf="submitted || form['username'].touched || form['username'].dirty && form['username'].invalid"
                 class="info-msg text-danger">
           <small
-            *ngIf="form['username'].errors && form['username'].errors?.['required']">This is the required field.</small>
-          <small *ngIf="form['username'].errors && form['username'].errors?.['minlength']">Should have at least 4 characters.</small>
+            *ngIf="form['username'].errors && form['username'].errors?.['required']">User  name is the required.</small>
+          <small *ngIf="form['username'].errors && form['username'].errors?.['minlength']">User name should have at least 4 characters.</small>
         </span>
         </div>
 
@@ -26,14 +26,14 @@
           <span *ngIf="submitted || form['password'].touched || form['password'].dirty && form['password'].invalid"
                 class="info-msg text-danger">
           <small
-            *ngIf="form['password'].errors && form['password'].errors?.['required']">This is the required field.</small>
+            *ngIf="form['password'].errors && form['password'].errors?.['required']">Password is the required field.</small>
           <small
-            *ngIf="form['password'].errors && form['password'].errors?.['minlength']">Should have at least
+            *ngIf="form['password'].errors && form['password'].errors?.['minlength']">Password should  have at least 5
             characters.</small>
         </span>
         </div>
-        <div class="row mt-3 d-flex justify-content-center">
-          <div class="col-sm-8">
+        <div class="row mt-5 d-flex justify-content-center">
+          <div class="col-sm-3">
             <button  type="button" class="btn btn-success" (click)="onUserLogin()">
               Login
             </button>

@@ -1,0 +1,25 @@
+#sidebar {
+  height: 100%;
+  width: 100%;
+  box-shadow: 20px 5px 5px #ccc;
+
+
+  #menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    padding-top: 100px;
+    a{
+      text-decoration:none ;
+      coolor: #333;
+      padding: 15px;
+      border-bottom: 1px solid #cccccc;
+      &:hover{
+        background-color: #eee;
+      }
+    }
+  }
+}
+
+

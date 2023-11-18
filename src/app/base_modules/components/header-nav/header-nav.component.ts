@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'deepak-header-nav',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-nav.component.scss']
 })
 export class HeaderNavComponent implements OnInit {
-
+  @Input() sidebarActive = true;
+  @Output() toggleSidebar = new EventEmitter ();
   constructor() { }
 
   ngOnInit(): void {

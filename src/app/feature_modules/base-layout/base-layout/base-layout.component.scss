@@ -1,0 +1,32 @@
+#container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  font-family: Arial, Helvertical, sans-serif;
+
+  deepak-sidebar {
+    display: block;
+    width: 200px;
+    height: 100%;
+    transform: translateX(-100%);
+    transition:  transform 0.4s ease-in-out;
+    box-shadow: 5px 5px 5px  #ccc;
+  }
+
+  #contentContainer {
+    flex-grow: 1;
+    margin-left: -200px;
+    transition:  margin-left 0.4s ease-in-out;
+    #content{
+      padding: 20px;
+    }
+  }
+  &.sidebarActive{
+    deepak-sidebar{
+      transform:translateX(0);
+    }
+    #contentContainer{
+      margin-left: 0px;
+    }
+  }
+}

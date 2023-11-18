@@ -1,13 +1,29 @@
-<div class="main-container d-flex">
-  <div class="sidebar" id="side_nav">
-    <deepak-sidebar></deepak-sidebar>
-  </div>
-  <div class="content">
-    <deepak-header-nav></deepak-header-nav>
-    <div class="ms-3 mt-1 card shadow-lg p-3 mb-5 bg-body rounded">
+<!--<div class="main-container d-flex">-->
+<!--  <div class="sidebar" id="side_nav">-->
+<!--    <deepak-sidebar></deepak-sidebar>-->
+<!--  </div>-->
+<!--  <div class="content">-->
+<!--    <deepak-header-nav></deepak-header-nav>-->
+<!--    <div class="ms-3 mt-1 card shadow-lg p-3 mb-5 bg-body rounded">-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
+<!--    <div class="footer">-->
+<!--      <deepak-footer></deepak-footer>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div id="container" [ngClass]="{sidebarActive: sidebarActive}">
+  <deepak-sidebar></deepak-sidebar>
+  <div id="contentContainer">
+    <deepak-header-nav
+      (toggleSidebar)="sidebarActive = !sidebarActive"
+      [sidebarActive]="sidebarActive">
+    </deepak-header-nav>
+    <div id="content">
       <router-outlet></router-outlet>
     </div>
-    <div class="footer">
+    <div>
       <deepak-footer></deepak-footer>
     </div>
   </div>

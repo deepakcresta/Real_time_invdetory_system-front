@@ -15,7 +15,7 @@ class UntypedFormGroup {
 export class UserLoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
-  title: string = ' Restaurant Real Time Inventory';
+  title: string = ' Restaurant Inventory System';
 
 
   constructor(
