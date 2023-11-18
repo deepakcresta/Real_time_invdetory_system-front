@@ -50,7 +50,7 @@ export class StockDisplayComponent implements OnInit {
     this.listAllStocks();
   }
 
-  onGoBack() {
+  onNavigateBack() {
     this.location.back();
   }
 

@@ -3,6 +3,7 @@ import {FormBuilder} from "@angular/forms";
 import {Location} from "@angular/common";
 import {Router} from "@angular/router";
 import {SharedService} from "../../../service/shared.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'deepak-total-stock',
@@ -10,28 +11,6 @@ import {SharedService} from "../../../service/shared.service";
   styleUrls: ['./total-stock.component.scss']
 })
 export class TotalStockComponent implements OnInit {
-  // allStockList = [
-  //   {
-  //     stockName: " Rice",
-  //     category: "normal goods",
-  //     quantity: "1"
-  //   },
-  //   {
-  //     stockName: " Rice",
-  //     category: "normal goods",
-  //     quantity: "1"
-  //   },
-  //   {
-  //     stockName: " Rice",
-  //     category: "normal goods",
-  //     quantity: "1"
-  //   },
-  //   {
-  //     stockName: " Rice",
-  //     category: "normal goods",
-  //     quantity: "1"
-  //   }
-  //
 
   // ]
   allStockList: Array<any> = new Array<any>();
@@ -44,6 +23,7 @@ export class TotalStockComponent implements OnInit {
     private location: Location,
     private router: Router,
     private sharedService: SharedService,
+    private toastService: ToastrService,
   ) {
   }
 
@@ -51,7 +31,7 @@ export class TotalStockComponent implements OnInit {
     this.listAllStocks();
   }
 
-  onGoBack() {
+  onNavigateBack() {
     this.location.back();
   }
 
@@ -64,9 +44,8 @@ export class TotalStockComponent implements OnInit {
       next: (response: any) => {
         console.log("all stocks listed: ", response);
         this.allStockList = response?.stocks;
-      // .forEach((f:any)=>{
-      //     console.log("f",f);
-      //   })
+         let datea =this.allStockList?.filter(item => item?.quantity !== null && item?.quantity !== undefined && item?.quantity < 20);
+        console.log("mero date",datea);
         console.log("al ",this.allStockList);
       },
       error: (error: any) => {
@@ -77,13 +56,19 @@ export class TotalStockComponent implements OnInit {
 
 
   onDeleteClick(id:number) {
-      this.sharedService.deleteUserById(id).subscribe(
+    this.toastService.warning('Are you sure You want to delete it!')
+      this.sharedService.deleteStockById(id).subscribe(
         {
           next: (response: any) => {
             this.listAllStocks();
+            this.toastService.success("The Stock Deleted Sucessfully!")
             console.log(response)
           }
         }
       );
+  }
+  onEditStock( id:number | undefined ){
+    this.router.navigate(['feature-modules/stock-entry',id]);
+
   }
 }

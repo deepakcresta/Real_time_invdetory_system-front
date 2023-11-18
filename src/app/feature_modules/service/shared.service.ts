@@ -16,6 +16,7 @@ export class SharedService {
   stockApiEndPoint: string = 'stock';
   contactApiEndPoint: string = 'contact';
   orderApiEndPoint: string = 'order';
+  menuApiEndPoint: string = 'menu'
 
 
   constructor(private httpClient: HttpClient) {
@@ -53,7 +54,7 @@ export class SharedService {
     return this.httpClient.get(environment.baseUrl + 'stock');
   }
 
-  deleteUserById(id: number): Observable<any> {
+  deleteStockById(id: number): Observable<any> {
     return this.httpClient.delete(environment.baseUrl + 'stock/' + `${id}`);
   }
 
@@ -68,6 +69,19 @@ export class SharedService {
 
   listAllOrders(): Observable<any> {
     return this.httpClient.get(environment.baseUrl + 'order');
+  }
+
+
+  //menu woks
+  addMenu(menu: any): Observable<any> {
+    console.log(menu);
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.menuApiEndPoint),
+      menu
+    );
+  }
+  listAllMenu(): Observable<any> {
+    return this.httpClient.get(environment.baseUrl + 'menu');
   }
 
 }

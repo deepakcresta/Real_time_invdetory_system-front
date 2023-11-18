@@ -1,4 +1,7 @@
-<form [formGroup]="foodOrderForm"></form>
+<div class="row">
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<form [formGroup]="foodOrderForm">
 <table class="table table-centered table-striped table-hover table-bordered table-nowrap mb-0 mt-3"
        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
   <thead class="bg-light">
@@ -29,10 +32,9 @@
       <input
         type="text"
         autocomplete="off"
-        id="snNo"
+        id=""
         name="snNo"
         class="form-control form-control-sm sb_input"
-        formControlName="snNo"
         placeholder="SN. No."
       />
 
@@ -84,19 +86,20 @@
 
     <!--    </td>-->
     <td class="sb_sm_col">
-      <!--      <input-->
-      <!--        type="text"-->
-      <!--        autocomplete="off"-->
-      <!--        id="orderT"-->
-      <!--        name="orderT"-->
-      <!--        class="form-control form-control-sm sb_input"-->
-      <!--        formControlName="orderT"-->
-      <!--        placeholder="orderType"-->
-      <!--      />-->
-      <select>
-        <option value="">Snacks</option>
-        <option value=""> Dinner</option>
-        <option value="">Launch</option>
+<!--            <input-->
+<!--              type="select"-->
+<!--              autocomplete="off"-->
+<!--              id="orderT"-->
+<!--              name="orderT"-->
+<!--              class="form-control form-control-sm sb_input"-->
+<!--              formControlName="orderT"-->
+<!--              placeholder="orderType"-->
+<!--              value=""-->
+<!--            />-->
+      <select formControlName="orderType">
+        <option value="snacks">Snacks</option>
+        <option value="dinner"> Dinner</option>
+        <option value="launch">Launch</option>
       </select>
     </td>
     <td class="d-flex justify-content-center">
@@ -112,4 +115,5 @@
   </div>
   </tbody>
 </table>
+</form>
 

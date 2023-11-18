@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {SharedService} from "../../../service/shared.service";
 import {StockResponseModalModal} from "../../../modal/StockResponseModal.modal";
+import {ToastrService} from "ngx-toastr";
+// import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'deepak-entry-stock',
@@ -21,6 +23,7 @@ export class EntryStockComponent implements OnInit {
     private location: Location,
     private router: Router,
     private sharedService: SharedService,
+    private toastService: ToastrService
   ) {
   }
 
@@ -36,7 +39,7 @@ export class EntryStockComponent implements OnInit {
       category: [undefined],
       expiryDate: [undefined],
       manufacturingDate: [undefined],
-      unit:[undefined],
+      quantityUnit:[undefined],
 
     });
   }
@@ -50,23 +53,26 @@ export class EntryStockComponent implements OnInit {
   }
 
   onSaveStockLevel() {
-      this.submitted = true;
-      console.log("user details: ", this.stockEntryForm.value);
-      if (this.stockEntryForm.invalid) {
-        return;
-      }
-      this.sharedService.addStock(this.stockEntryForm.value as StockResponseModalModal).subscribe({
+      // this.submitted = true;
+      // console.log("user details: ", this.stockEntryForm.value);
+      // if (this.stockEntryForm.invalid) {
+      //   return;
+      // }
+      this.sharedService.addStock(this.stockEntryForm.value).subscribe({
         next: (value: any) => {
           this.stockEntryForm.reset();
           this.location.back();
-          console.log("user save successfully !");
           console.log("value",value);
+          this.toastService.success("Stock Added Successfully");
           this.router.navigate(['/feature-modules/total-stock'])
         }, error: (err: any) => {
-          console.log("unable to save user !");
-          this.router.navigate(['/home']);
+          this.toastService.error("Error on adding the stock");
+          this.router.navigate(['/feature-modules/total-stock'])
         }
       });
+    }
+    onNavigateBack(){
+    this.location.back();
     }
 
 }

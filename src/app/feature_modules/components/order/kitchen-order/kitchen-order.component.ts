@@ -4,6 +4,7 @@ import {Location} from "@angular/common";
 import {Router} from "@angular/router";
 import {SharedService} from "../../../service/shared.service";
 import {StockResponseModalModal} from "../../../modal/StockResponseModal.modal";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'deepak-kitchen-order',
@@ -21,6 +22,7 @@ export class KitchenOrderComponent implements OnInit {
     private location: Location,
     private router: Router,
     private sharedService: SharedService,
+    private toastService: ToastrService,
   ) {
   }
 
@@ -48,18 +50,24 @@ export class KitchenOrderComponent implements OnInit {
     if (this.foodOrderForm.invalid) {
       return;
     }
-    this.sharedService.orderFood(this.foodOrderForm.value as StockResponseModalModal).subscribe({
+    this.sharedService.orderFood(this.foodOrderForm.value).subscribe({
       next: (value: any) => {
         this.foodOrderForm.reset();
         this.location.back();
         console.log("order successfully !");
+        this.toastService.info("Your Order is successfully ordered");
         console.log("value", value);
         this.router.navigate(['/feature-modules/order-list'])
       }, error: (err: any) => {
         console.log("unable to save user !");
+        this.toastService.error("Unable to order your order");
         this.router.navigate(['/feature-modules/order-list']);
       }
     });
+  }
+
+  onNavigateBack() {
+    this.location.back();
   }
 
 }

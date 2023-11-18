@@ -3,6 +3,7 @@ import {AbstractControl, AnyForUntypedForms, FormBuilder, FormGroup, Validators}
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
 import {LoginModal} from "../modals/login.modal";
+import {ToastrService} from "ngx-toastr";
 
 class UntypedFormGroup {
 }
@@ -22,6 +23,7 @@ export class UserLoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router : Router,
     private authService : AuthService,
+    private toastService: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -47,9 +49,11 @@ export class UserLoginComponent implements OnInit {
         next:(value: any)=>{
           this.loginForm.reset();
           console.log("User Login Successful")
+          this.toastService.success("Login Successful")
           this.router.navigate(['/feature-modules/home']);
         },error:(err :any) =>{
           console.log("Unable to login the user")
+          this.toastService.error("Unable to login")
           this.router.navigate(['/feature-modules/home']);
         }
       });

@@ -1,6 +1,9 @@
-<div class="p-3 mb-2 bg-warning text-dark">
-  <div class="col-sm-6 text-bg-danger">
-    <h5>Today Order List</h5>
+<div class="row">
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<div class="p-3 mt-3  text-dark">
+  <div class="col-sm-6 ">
+    <h5> Order List</h5>
   </div>
   <!--  <div class="col-sm-6">-->
   <!--    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New-->
@@ -27,11 +30,12 @@
             <label class="sb_label">Category</label>
           </th>
           <th>
-            <label class="sb_label">Order At</label>
-          </th>
-          <th>
             <label class="sb_label">Quantity</label>
           </th>
+          <th>
+            <label class="sb_label">Order At</label>
+          </th>
+
           <th>
             <label class="sb_label">Actions</label>
           </th>
@@ -41,18 +45,26 @@
         <tr *ngFor="let stock of orderList; let i = index">
           <td>{{i + 1}}</td>
           <td>{{stock.tableNumber}}</td>
-          <td>{{stock?.orderItems}}</td>
-          <td>{{stock.category}}</td>
+          <td>{{stock?.orderName}}</td>
+          <td>{{stock.orderType}}</td>
           <td>{{stock.quantity}}</td>
-          <td>{{stock?.orderAt}}</td>
-          <td class="d-flex justify-content-center">
-            <button class=" btn btn-sm btn-primary">View</button>
-            <button class="ms-3 btn btn-sm btn-info">Edit</button>
-            <button class="ms-3 btn btn-sm btn-danger">Delete</button>
+          <td>{{stock?.orderTime | date}}</td>
+          <td>
+            <i class="fa fa-eye ms-3" aria-hidden="true"></i>
+            <i style="padding-left:25px;" class="fa fa-pencil" aria-hidden="true"></i>
+            <i style="padding-left:25px;" class="fa fa-trash" aria-hidden="true"></i>
+            <i  style="padding-left:25px;"class="fa fa-check-circle-o" aria-hidden="true"></i>
           </td>
         </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3 justify-content-end">
+    <div class="form-group">
+      <button [routerLink]="'/feature-modules/kitchen-order'" class="btn btn-success">Go  Order </button>
     </div>
   </div>
 </div>
