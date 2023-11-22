@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
 
@@ -18,11 +18,12 @@ import {HttpClientModule} from "@angular/common/http";
     exports: [
         AuthComponent
     ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+    ]
 })
 export class AuthModule { }

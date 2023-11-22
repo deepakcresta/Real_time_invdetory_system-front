@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AbstractControl, AnyForUntypedForms, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
@@ -17,41 +17,46 @@ export class UserLoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
   title: string = ' Restaurant Inventory System';
-
+  appVersion: number = 0.1;
+  public currentYear = new Date().getFullYear();
 
   constructor(
     private formBuilder: FormBuilder,
-    private router : Router,
-    private authService : AuthService,
+    private router: Router,
+    private authService: AuthService,
     private toastService: ToastrService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.buildForm();
   }
-  buildForm(){
+
+  buildForm() {
     this.loginForm = this.formBuilder.group({
       username: [undefined, Validators.compose([Validators.required])],
       password: [undefined, Validators.compose([Validators.required])]
     })
 
   }
-  get form() : {[key:string]: AbstractControl}{
+
+  get form(): { [key: string]: AbstractControl } {
     return this.loginForm.controls
   }
-  onUserLogin(){
+
+  onUserLogin() {
     this.submitted = true;
-    if(this.loginForm.invalid){
+    if (this.loginForm.invalid) {
       return;
     }
-    this.authService.loginUser(this.loginForm.value as LoginModal) .subscribe(
+    this.authService.loginUser(this.loginForm.value as LoginModal).subscribe(
       {
-        next:(value: any)=>{
+        next: (value: any) => {
           this.loginForm.reset();
           console.log("User Login Successful")
           this.toastService.success("Login Successful")
           this.router.navigate(['/feature-modules/home']);
-        },error:(err :any) =>{
+        }, error: (err: any) => {
           console.log("Unable to login the user")
           this.toastService.error("Unable to login")
           this.router.navigate(['/feature-modules/home']);
@@ -59,7 +64,8 @@ export class UserLoginComponent implements OnInit {
       });
 
   }
-  onNavigateToRegister(){
+
+  onNavigateToRegister() {
     this.router.navigate(['/register']);
   }
 }

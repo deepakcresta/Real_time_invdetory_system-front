@@ -1,19 +1,41 @@
+/* login.component.css */
+
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  box-shadow: 5px 5px 15px black;
+
+}
+
+.card-header {
+  background-color: #308530;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
 .card-body {
-  margin: 0;
-  padding: 0;
-  background-color: #EAEAEA ;
-  height: 60vh;
-}
-#login .container #login-row #login-column #login-box {
-  margin-top: 120px;
-  max-width: 600px;
-  height: 320px;
-  border: 1px solid #9C9C9C;
-  background-color: #EAEAEA;
-}
-#login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
-#login .container #login-row #login-column #login-box #login-form #register-link {
-  margin-top: -85px;
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #6da869;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #308530;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .col-md-6 {
+    max-width: 100%;
+  }
 }
