@@ -135,8 +135,64 @@ body {
 .content {
   padding: 0 0.5rem;
 }
-//Edit table  Style
+.container {
+  margin-top: 50px;
+}
 
+.card {
+  box-shadow: 5px 5px 15px black;
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+}
+
+.card-header {
+  background-color: #308530;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #6da869;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #308530;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .col-md-6 {
+    max-width: 100%;
+  }
+}
+.btn-submit {
+  background-color: #308530;
+  border: none;
+}
+
+.btn-submit:hover {
+  background-color: #6da869;
+}
+.btn-cancel{
+  background-color: #9742ce;
+  border: none;
+}
+
+.btn-cancel:hover {
+  background-color: #912dd0;
+}
+.no-border-input {
+  border: 2px solid black; /* Set border color to black */
+  border-radius: 5px; /* Optionally, remove border radius */
+  box-shadow: 2px 1.5px 5px; /* Optionally, remove box shadow */
+}
+

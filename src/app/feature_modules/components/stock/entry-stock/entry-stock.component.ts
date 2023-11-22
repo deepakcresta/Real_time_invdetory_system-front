@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {SharedService} from "../../../service/shared.service";
 import {StockResponseModalModal} from "../../../modal/StockResponseModal.modal";
 import {ToastrService} from "ngx-toastr";
+
 // import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -15,7 +16,6 @@ import {ToastrService} from "ngx-toastr";
 export class EntryStockComponent implements OnInit {
   stockEntryForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
-  isSubmitting: boolean | undefined;
 
 
   constructor(
@@ -33,13 +33,13 @@ export class EntryStockComponent implements OnInit {
 
   buildForm() {
     this.stockEntryForm = this.formBuilder.group({
-      stockName: [undefined],
+      stockName: [undefined, Validators.compose([Validators.required])],
       quantity: [undefined],
-      brandName: [undefined],
-      category: [undefined],
+      brandName: [undefined, Validators.compose([Validators.required])],
+      stockCategory: [undefined],
       expiryDate: [undefined],
       manufacturingDate: [undefined],
-      quantityUnit:[undefined],
+      quantityUnit: [undefined,],
 
     });
   }
@@ -53,26 +53,30 @@ export class EntryStockComponent implements OnInit {
   }
 
   onSaveStockLevel() {
-      // this.submitted = true;
-      // console.log("user details: ", this.stockEntryForm.value);
-      // if (this.stockEntryForm.invalid) {
-      //   return;
-      // }
-      this.sharedService.addStock(this.stockEntryForm.value).subscribe({
-        next: (value: any) => {
-          this.stockEntryForm.reset();
-          this.location.back();
-          console.log("value",value);
-          this.toastService.success("Stock Added Successfully");
-          this.router.navigate(['/feature-modules/total-stock'])
-        }, error: (err: any) => {
-          this.toastService.error("Error on adding the stock");
-          this.router.navigate(['/feature-modules/total-stock'])
-        }
-      });
+    this.submitted = true;
+    console.log("user details: ", this.stockEntryForm.value);
+    if (this.stockEntryForm.invalid) {
+      return;
     }
-    onNavigateBack(){
-    this.location.back();
-    }
+    this.sharedService.addStock(this.stockEntryForm.value).subscribe({
+      next: (value: any) => {
+        this.stockEntryForm.reset();
+        this.location.back();
+        console.log("value", value);
+        this.toastService.success("Stock Added Successfully");
+        this.router.navigate(['/feature-modules/total-stock'])
+      }, error: (err: any) => {
+        this.toastService.error("Error on adding the stock");
+        this.router.navigate(['/feature-modules/total-stock'])
+      }
+    });
+  }
 
+  onNavigateBack() {
+    this.location.back();
+  }
+
+  onCancel() {
+    this.stockEntryForm.reset();
+  }
 }
