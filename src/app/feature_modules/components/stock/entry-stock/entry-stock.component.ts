@@ -34,9 +34,9 @@ export class EntryStockComponent implements OnInit {
   buildForm() {
     this.stockEntryForm = this.formBuilder.group({
       stockName: [undefined, Validators.compose([Validators.required])],
-      quantity: [undefined],
+      quantity: [undefined, Validators.compose([Validators.required])],
       brandName: [undefined, Validators.compose([Validators.required])],
-      stockCategory: [undefined],
+      category: [undefined],
       expiryDate: [undefined],
       manufacturingDate: [undefined],
       quantityUnit: [undefined,],

@@ -68,7 +68,6 @@ export class TotalStockComponent implements OnInit {
       );
   }
   onEditStock( id:number | undefined ){
-    this.router.navigate(['feature-modules/stock-entry',id]);
-
+    this.router.navigate(['feature-modules/stock-entry']);
   }
 }

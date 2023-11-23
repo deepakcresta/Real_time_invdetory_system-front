@@ -10,7 +10,7 @@
 
 <form [formGroup]="stockEntryForm">
   <div class="row mt-2">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label>Stock Name</label>
         <input id="stockName" type="text" placeholder="stockName" formControlName="stockName"
@@ -25,7 +25,7 @@
                     </span>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label>Quantity</label>
         <input name="quantity" formControlName="quantity" id="quantity" class="form-control no-border-input"
@@ -39,7 +39,7 @@
                     </span>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label> Unit</label>
         <br>
@@ -57,7 +57,7 @@
           </span>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label>Brand Name</label>
         <input name="brandName" formControlName="brandName" id="brandName" class="form-control no-border-input"
@@ -71,11 +71,11 @@
                     </span>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label> Stock Category</label>
         <br>
-        <select formControlName="stockCategory" class="form-control no-border-input" placeholde="Chose Category">
+        <select formControlName="category" class="form-control no-border-input" placeholde="Chose Category">
           <option value="normalGoods"> Normal Goods</option>
           <option value="spicesFoods"> Spices Food</option>
           <option value="liquid">Liquid</option>
@@ -84,16 +84,16 @@
           option
         </select>
         <span
-          *ngIf="submitted || form['stockCategory'].touched || form['stockCategory'].dirty && form['stockCategory'].invalid"
+          *ngIf="submitted || form['category'].touched || form['category'].dirty && form['category'].invalid"
           class="info-msg text-danger">
                       <small
-                        *ngIf="form['stockCategory'].errors && form['stockCategory'].errors?.['required']">This is the required field.</small>
-                      <small *ngIf="form['stockCategory'].errors && form['stockCategory'].errors?.['minlength']">Should have at least 4 characters.</small>
+                        *ngIf="form['category'].errors && form['category'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['category'].errors && form['category'].errors?.['minlength']">Should have at least 4 characters.</small>
                     </span>
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label>Manufacture Date:</label>
         <input type="text" name="manufacturingDate" formControlName="manufacturingDate" id="manufacturingDate"
@@ -107,7 +107,7 @@
             </span>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="form-group">
         <label>Expiry Date:</label>
         <input type="text" name="expiryDate" formControlName="expiryDate" id="expiryDate"
@@ -125,7 +125,7 @@
 
   <div class="row mb-3">
     <div class="col-sm-12">
-      <div class=" d-flex mt-4">
+      <div class=" d-flex  float-end mt-4">
         <button (click)="onSaveStockLevel()" class="btn btn-submit">Submit</button>
         <button type="submit" class="btn btn-cancel ms-3" (click)="onCancel()">Cancel</button>
       </div>
