@@ -1,0 +1,14 @@
+<form [formGroup]="dateForm">
+  <div class="form-group">
+    <input onkeydown="return false" id="issuedDate" class="form-control no-border-input "
+           formControlName="date" [max]="maxLimit" [min]="minLimit" id="date" [readonly]="isReadonly"
+           type="date">
+  </div>
+<!--  <span-->
+<!--    *ngIf="submitted || dateForm.get('date')?.touched || (dateForm.get('date')?.dirty && dateForm.get('date')?.invalid)"-->
+<!--    class="info-msg text-danger">-->
+<!--    <small *ngIf="dateForm.get('date')?.errors && dateForm.get('date')?.errors?.['required']">-->
+<!--      {{title}} is required.-->
+<!--    </small>-->
+<!--  </span>-->
+</form>

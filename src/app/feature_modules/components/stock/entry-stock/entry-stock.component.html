@@ -44,10 +44,10 @@
         <label> Unit</label>
         <br>
         <select formControlName="quantityUnit" class="form-control no-border-input" placeholde="Unit">
-          <option value="">KG</option>
-          <option value=""> Gram</option>
-          <option value="">Liter</option>
-          <option value="">Milligram</option>
+          <option value="KG">KG</option>
+          <option value="Gram"> Gram</option>
+          <option value="Liter">Liter</option>
+          <option value="Milligram">Milligram</option>
         </select>
         <span
           *ngIf="submitted || form['quantityUnit'].touched || form['quantityUnit'].dirty && form['quantityUnit'].invalid"

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 import { FeatureRoutingModule } from './feature-routing.module';
 import { FeatureComponent } from './feature.component';
@@ -23,6 +23,7 @@ import { AddMenuComponent } from './components/menu/add-menu/add-menu.component'
 import {NgSelectModule} from "@ng-select/ng-select";
 import { MenuListComponent } from './components/menu/menu-list/menu-list.component';
 import { AddRespectiveMenuCredentialsComponent } from './components/menu/add-respective-menu-credentials/add-respective-menu-credentials.component';
+import {CoreModule} from "../core_modules/components/common/core.module";
 
 
 
@@ -53,6 +54,9 @@ import { AddRespectiveMenuCredentialsComponent } from './components/menu/add-res
     FormsModule,
     RouterModule,
     NgSelectModule,
-  ]
+    CoreModule,
+  ],
+  providers: [
+    DatePipe,]
 })
 export class FeatureModule { }

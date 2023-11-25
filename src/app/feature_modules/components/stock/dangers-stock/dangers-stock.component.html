@@ -1,14 +1,14 @@
 <div class="row">
   <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
 </div>
-<div class="row">
+<div class="row mt-3">
   <div class="col-sm-6">
-    <h5>
-      Danger Stock List
-    </h5>
+    <h4><strong> Total Stock List </strong></h4>
   </div>
   <div class="col-sm-6">
+    <!--    <button (click)="onNewAdd()" class="btn btn-sm btn-outline-primary float-end"><i class="fal fa-plus"></i> Add New-->
     <button (click)="onNewAdd()" class="btn btn-dark float-end"><i class="fa fa-plus"></i> Add New
+
     </button>
   </div>
   <hr class="my-2"/>
@@ -16,9 +16,9 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <table class="table table-centered table-striped table-hover table-bordered table-nowrap mb-0 mt-3"
+    <table class=" shadow table table-centered table-striped table-hover table-bordered table-nowrap mb-0 mt-3"
            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-      <thead class="bg-light">
+      <thead class="bg-secondary">
       <tr>
         <th>
           <label class="sb_label">SN. No</label>
@@ -28,6 +28,9 @@
         </th>
         <th>
           <label class="sb_label">Quantity</label>
+        </th>
+        <th>
+          <label class="sb_label">Unit</label>
         </th>
         <th>
           <label class="sb_label">Category</label>
@@ -42,9 +45,6 @@
           <label class="sb_label">Expiry Date</label>
         </th>
         <th>
-          <label class="sb_label">Created At</label>
-        </th>
-        <th>
           <label class="sb_label">Modified At</label>
         </th>
       </tr>
@@ -52,14 +52,16 @@
       <tbody>
       <tr *ngFor="let stock of dangerStockList; let i = index">
         <td>{{i + 1}}</td>
-        <td>{{stock?.stockName ? stock.stockName : "Not Available"}}</td>
-        <td>{{stock?.quantity ? stock?.quantity : "Not Available"}}</td>
-        <td>{{stock?.category ? stock?.category : "Not Available"}}</td>
-        <td>{{stock?.brandName ? stock?.brandName : "Not Available"}}</td>
-        <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "Not Available"}}</td>
-        <td>{{stock?.expiryDate ? stock?.expiryDate : "Not Available"}}</td>
-        <td>{{stock.modifiedAt ? stock?.createdA : "Not Available"}}</td>
-        <td>{{stock?.manufacturingDate ? stock?.manufacturingDat : "Not Available"}}</td>
+        <td>{{stock?.stockName ? stock.stockName : "N/A"}}</td>
+        <td>{{stock?.quantity ? stock?.quantity : "N/A"}}</td>
+        <td>{{stock?.category? stock?.category: "N/A"}}</td>
+        <td>{{stock?.quantityUnit ? stock?.quantityUnit : "N/A"}}</td>
+        <td>{{stock?.brandName ? stock?.brandName : "N/A"}}</td>
+        <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "N/A"}}</td>
+        <td>{{stock?.expiryDate |date}}</td>
+        <td>{{stock.modifiedAt ? stock?.modifiedAt : "N/A"}}</td>
+        <td>
+        </td>
       </tr>
       </tbody>
     </table>

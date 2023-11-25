@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {Location} from "@angular/common";
+import {DatePipe, Location} from "@angular/common";
 import {SharedService} from "../../../service/shared.service";
 import {StockResponseModalModal} from "../../../modal/StockResponseModal.modal";
 import {ToastrService} from "ngx-toastr";
@@ -17,13 +17,15 @@ export class EntryStockComponent implements OnInit {
   stockEntryForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
 
+  finalData :any;
 
   constructor(
     private formBuilder: FormBuilder,
     private location: Location,
     private router: Router,
     private sharedService: SharedService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+  private datePipe: DatePipe
   ) {
   }
 
@@ -36,10 +38,10 @@ export class EntryStockComponent implements OnInit {
       stockName: [undefined, Validators.compose([Validators.required])],
       quantity: [undefined, Validators.compose([Validators.required])],
       brandName: [undefined, Validators.compose([Validators.required])],
-      category: [undefined],
+      category: [undefined, Validators.compose([Validators.required])],
       expiryDate: [undefined],
       manufacturingDate: [undefined],
-      quantityUnit: [undefined,],
+      quantityUnit: [undefined, Validators.compose([Validators.required])],
 
     });
   }
@@ -58,10 +60,11 @@ export class EntryStockComponent implements OnInit {
     if (this.stockEntryForm.invalid) {
       return;
     }
+    finalData: this.stockEntryForm.value;
+    console.log("dfgdfgd",this.stockEntryForm.value);
     this.sharedService.addStock(this.stockEntryForm.value).subscribe({
       next: (value: any) => {
-        this.stockEntryForm.reset();
-        this.location.back();
+
         console.log("value", value);
         this.toastService.success("Stock Added Successfully");
         this.router.navigate(['/feature-modules/total-stock'])
