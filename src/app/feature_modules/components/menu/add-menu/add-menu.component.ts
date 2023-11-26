@@ -58,9 +58,9 @@ export class AddMenuComponent implements OnInit {
   initContacts() {
     (this.menuForm.get('menusCredentials') as FormArray).push(
       this.formBuilder.group({
-        credentialName: [undefined],
-        quantity: [undefined],
-        unit:[undefined]
+        credentialName: [undefined, Validators.compose([Validators.required])],
+        quantity: [undefined, Validators.compose([Validators.required])],
+        unit:[undefined, Validators.compose([Validators.required])]
       })
     )
   }

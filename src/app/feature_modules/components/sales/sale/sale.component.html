@@ -33,12 +33,9 @@
             <label class="sb_label">Quantity</label>
           </th>
           <th>
-            <label class="sb_label">Order At</label>
+            <label class="sb_label">Order Time</label>
           </th>
 
-          <th>
-            <label class="sb_label">Actions</label>
-          </th>
         </tr>
         </thead>
         <tbody>
@@ -49,11 +46,6 @@
           <td>{{stock.orderType}}</td>
           <td>{{stock.quantity}}</td>
           <td>{{stock?.orderTime | date}}</td>
-          <td>
-            <i class="fa fa-eye ms-3" aria-hidden="true"></i>
-            <i style="padding-left:25px;" class="fa fa-pencil" aria-hidden="true"></i>
-            <i style="padding-left:25px;" class="fa fa-trash" aria-hidden="true"></i>
-          </td>
         </tr>
         </tbody>
       </table>
@@ -67,3 +59,5 @@
     </div>
   </div>
 </div>
+
+<!--<deepak-order-list [saleData]="saleData"></deepak-order-list>-->

@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SharedService} from "../../../service/shared.service";
 import {Location} from "@angular/common";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'deepak-order-list',
@@ -10,7 +11,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit {
-
+@Input() saleData:any;
   orderList: Array<any> = new Array<any>();
   submitted: boolean = false;
   isSubmitting: boolean | undefined;
@@ -20,12 +21,16 @@ export class OrderListComponent implements OnInit {
   timeGap: Date = new Date();
   hour: any;
   minutes:number|undefined;
+  listOrder: any[] = [];
+  removedData: any[] = [];
+  removedDataVariable: any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private location: Location,
     private router: Router,
     private sharedService: SharedService,
+    private toastMessage: ToastrService
   ) {
   }
 
@@ -76,7 +81,6 @@ export class OrderListComponent implements OnInit {
   }
 
   hourDifference(): number {
-    debugger
     console.log("sdfsdf", this.timeGap)
     const duration = this.endDate.getTime() - this.timeGap.getTime();
     const hours = Math.floor(duration / (60 * 60 * 1000));
@@ -90,4 +94,18 @@ export class OrderListComponent implements OnInit {
     this.minutes = minutes;
     return minutes;
   }
+  removeOrder(index: number): void {
+    const removedOrder = this.orderList.splice(index, 1)[0];
+
+    if (removedOrder !== undefined) {
+      this.toastMessage.success("Thank You! Your order is completed!");
+      this.removedData.push(removedOrder);
+      this.removedDataVariable = removedOrder; // Store the removed data in the variable
+      this.saleData =this.removedDataVariable;
+      console.log("sale order", this.removedData);
+    } else {
+      console.log("No order found at index", index);
+    }
+  }
+
 }

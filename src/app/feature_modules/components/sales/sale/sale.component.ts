@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {Location} from "@angular/common";
 import {Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {SharedService} from "../../../service/shared.service";
   styleUrls: ['./sale.component.scss']
 })
 export class SaleComponent implements OnInit {
-
+  @Input() saleData: any;
   orderList: Array<any> = new Array<any>();
   submitted: boolean = false;
   isSubmitting: boolean | undefined;

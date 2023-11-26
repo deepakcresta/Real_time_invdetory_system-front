@@ -1,50 +1,16 @@
+<div class="row shadow">
 <div class="row">
   <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
 </div>
 <div class="row">
-  <div class="col-sm-12 d-flex justify-content-center">
+  <div class="col-sm-12 d-flex ">
 
-    <h5><strong> Menu Form</strong></h5>
+    <h3><strong> Menu Form</strong></h3>
   </div>
   <!--  <hr class="my-2"/>-->
 </div>
+<form [formGroup]="menuForm" class="  users_fields">
 
-<form [formGroup]="menuForm" class="users_fields">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="form-group">
-        <label>Menu Name</label>
-        <input type="text" formControlName="menuName" name="menuName" id="menuName"
-               class="form-control form-control-sm" placeholder="Enter Stock Name"/>
-        <span
-          *ngIf="submitted || form['menuName'].touched || form['menuName'].dirty && form['menuName'].invalid"
-          class="info-msg text-danger">
-                      <small
-                        *ngIf="form['menuName'].errors && form['menuName'].errors?.['required']">This is the required field.</small>
-                    </span>
-      </div>
-    </div>
-
-    <div class="col-sm-4 form-field">
-      <div class="form-group">
-        <ng-select
-          [items]="dropdownOptions"
-          bindLabel="label"
-          bindValue="value"
-          placeholder="Chose Menu Category"
-          formControlName="unit">
-        </ng-select>
-        <span
-          *ngIf="submitted || form['unit']?.dirty && form['unit']?.invalid"
-          class="info-msg text-danger">
-            <small
-              *ngIf="form['unit']?.errors && form['unit'].errors?.['required']">
-              Menu Type is required.
-            </small>
-          </span>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <div class="col-sm-12">
       <h5> Add Menu Credentials</h5>
@@ -107,3 +73,4 @@
 
 </form>
 
+</div>

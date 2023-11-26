@@ -22,10 +22,10 @@ export class MenuListComponent implements OnInit {
   }
 
   onNewAdd() {
-    this.router.navigate(['feature-modules/menu']);
+    this.router.navigate(['feature-modules/menu-credentials']);
   }
   onAddMenuCredentials(){
-    this.router.navigate(['feature-modules/menu-credentials'])
+    this.router.navigate(['feature-modules/menu'])
   }
   listAllMenu(){
     this.sharedService.listAllMenu().subscribe({

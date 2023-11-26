@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./add-respective-menu-credentials.component.scss']
 })
 export class AddRespectiveMenuCredentialsComponent implements OnInit {
-  menuCredentialsForm: FormGroup = new FormGroup({});
+  menuForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
 
 
@@ -31,23 +31,40 @@ export class AddRespectiveMenuCredentialsComponent implements OnInit {
   }
 
   buildForm() {
-    this.menuCredentialsForm = this.formBuilder.group({
-      // menuName: [undefined, Validators.compose([Validators.required])],
-      // menuType: [undefined, Validators.compose([Validators.required])],
+    this.menuForm = this.formBuilder.group({
+      menuName: [undefined, Validators.compose([Validators.required])],
+      menuType: [undefined, Validators.compose([Validators.required])],
+
     })
   }
 
   get form(): { [key: string]: AbstractControl } {
-    return this.menuCredentialsForm.controls;
+    return this.menuForm.controls;
   }
 
   onSaveMenu() {
     this.submitted = true;
-    if (this.menuCredentialsForm.invalid) {
+    console.log("user details: ", this.menuForm.value);
+    if (this.menuForm.invalid) {
       return;
     }
+    this.sharedService.addMenu(this.menuForm.value).subscribe({
+      next: (value: any) => {
+        console.log("menu form valley", value);
+        this.router.navigate(['/feature-modules/menu-list'])
+        console.log("menu form valley", value);
+        this.toastService.success("Menu added successfully!")
+      }, error: (error: any) => {
+        this.toastService.error("Error on adding the menu")
+      }
+
+    })
   }
+
   onNavigateBack(){
     this.location.back()
+  }
+  onCancel(){
+    this.menuForm.reset();
   }
 }
