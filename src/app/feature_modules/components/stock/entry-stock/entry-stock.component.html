@@ -95,30 +95,33 @@
 
     <div class="col-sm-6">
       <div class="form-group">
-        <label>Manufacture Date:</label>
-        <input type="text" name="manufacturingDate" formControlName="manufacturingDate" id="manufacturingDate"
-               class="form-control no-border-input" placeholder="Manufacturing Date"/>
-        <span
-          *ngIf="submitted  || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"
-          class="info-msg text-danger">
-              <small
-                *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>
-              <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>
-            </span>
+                <label>Manufacture Date:</label>
+        <!--        <span-->
+        <!--          *ngIf="submitted  || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"-->
+        <!--          class="info-msg text-danger">-->
+        <!--              <small-->
+        <!--                *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>-->
+        <!--              <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+        <!--            </span>-->
+
+
+        <deepak-date-picker formControlName="manufacturingDate"></deepak-date-picker>
+
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
         <label>Expiry Date:</label>
-        <input type="text" name="expiryDate" formControlName="expiryDate" id="expiryDate"
-               class="form-control no-border-input" placeholder="Expiry Date"/>
-        <span
-          *ngIf="submitted || form['expiryDate'].touched || form['expiryDate'].dirty && form['expiryDate'].invalid"
-          class="info-msg text-danger">
-                      <small
-                        *ngIf="form['expiryDate'].errors && form['expiryDate'].errors?.['required']">This is the required field.</small>
-                      <small *ngIf="form['expiryDate'].errors && form['expiryDate'].errors?.['minlength']">Should have at least 4 characters.</small>
-                    </span>
+        <deepak-date-picker formControlName="expiryDate"></deepak-date-picker>
+<!--        <input type="text" name="expiryDate" formControlName="expiryDate" id="expiryDate"-->
+<!--               class="form-control no-border-input" placeholder="Expiry Date"/>-->
+<!--        <span-->
+<!--          *ngIf="submitted || form['expiryDate'].touched || form['expiryDate'].dirty && form['expiryDate'].invalid"-->
+<!--          class="info-msg text-danger">-->
+<!--                      <small-->
+<!--                        *ngIf="form['expiryDate'].errors && form['expiryDate'].errors?.['required']">This is the required field.</small>-->
+<!--                      <small *ngIf="form['expiryDate'].errors && form['expiryDate'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+<!--                    </span>-->
       </div>
     </div>
   </div>

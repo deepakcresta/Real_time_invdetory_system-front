@@ -62,7 +62,7 @@
         <td>{{stock?.brandName ? stock?.brandName : "N/A"}}</td>
         <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "N/A"}}</td>
         <td>{{stock?.expiryDate |date}}</td>
-        <td>{{stock.modifiedAt ? stock?.modifiedAt : "N/A"}}</td>
+        <td>{{stock.modifiedAt | date}}</td>
         <td>
           <i style="padding-left:25px;" class="fa fa-pencil" aria-hidden="true" (click)="onEditStock(stock.id)"></i>
           <i style="padding-left:25px;" class="fa fa-trash" aria-hidden="true" (click)="onDeleteClick(stock.id)"></i>

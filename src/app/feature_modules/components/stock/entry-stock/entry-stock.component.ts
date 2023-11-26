@@ -62,6 +62,8 @@ export class EntryStockComponent implements OnInit {
     }
     finalData: this.stockEntryForm.value;
     console.log("dfgdfgd",this.stockEntryForm.value);
+    this.stockEntryForm.value.manufacturingDate.date ? this.stockEntryForm.value.manufacturingDate = this.stockEntryForm.value.manufacturingDate.date : '';
+    this.stockEntryForm.value.expiryDate.date ? this.stockEntryForm.value.expiryDate = this.stockEntryForm.value.expiryDate.date : '';
     this.sharedService.addStock(this.stockEntryForm.value).subscribe({
       next: (value: any) => {
 
@@ -70,7 +72,6 @@ export class EntryStockComponent implements OnInit {
         this.router.navigate(['/feature-modules/total-stock'])
       }, error: (err: any) => {
         this.toastService.error("Error on adding the stock");
-        this.router.navigate(['/feature-modules/total-stock'])
       }
     });
   }

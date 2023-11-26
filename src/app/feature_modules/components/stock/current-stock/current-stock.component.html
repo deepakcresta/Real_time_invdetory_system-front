@@ -58,8 +58,8 @@
         <td>{{stock?.brandName ? stock?.brandName : "Not Available"}}</td>
         <td>{{stock?.manufacturingDate ? stock?.manufacturingDate : "Not Available" |date}}</td>
         <td>{{stock?.expiryDate ? stock?.expiryDate : "Not Available" |date}}</td>
-        <td>{{stock.modifiedAt ? stock?.createdA : "Not Available"}}</td>
-        <td>{{stock?.manufacturingDate ? stock?.manufacturingDat : "Not Available"}}</td>
+        <td>{{(stock?.createAt |date) }}</td>
+        <td>{{stock?.modifiedAt |date}}</td>
       </tr>
       </tbody>
     </table>

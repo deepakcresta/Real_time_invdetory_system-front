@@ -35,7 +35,9 @@
           <th>
             <label class="sb_label">Order At</label>
           </th>
-
+          <th>
+            <label class="sb_label">Order Time</label>
+          </th>
           <th>
             <label class="sb_label">Actions</label>
           </th>
@@ -48,9 +50,11 @@
           <td>{{stock?.orderName}}</td>
           <td>{{stock.orderType}}</td>
           <td>{{stock.quantity}}</td>
-          <td>{{stock?.orderTime | date}}</td>
+          <td>{{stock?.orderTime}}</td>
+          <td>{{hour+" hr"+minutes+' min'}}</td>
+<!--          <td>{{hourDifference, "hr" ,minuteDifference"mins"}}</td>-->
+
           <td>
-            <i class="fa fa-eye ms-3" aria-hidden="true"></i>
             <i style="padding-left:25px;" class="fa fa-pencil" aria-hidden="true"></i>
             <i style="padding-left:25px;" class="fa fa-trash" aria-hidden="true"></i>
             <i  style="padding-left:25px;"class="fa fa-check-circle-o" aria-hidden="true"></i>
@@ -61,6 +65,7 @@
     </div>
   </div>
 </div>
+<p>Hour Difference: {{ hourDifference }}</p>
 <div class="row">
   <div class="col-sm-3 justify-content-end">
     <div class="form-group">

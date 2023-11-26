@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Location} from "@angular/common";
 import {Router} from "@angular/router";
 import {SharedService} from "../../../service/shared.service";
@@ -32,10 +32,10 @@ export class KitchenOrderComponent implements OnInit {
 
   buildForm() {
     this.foodOrderForm = this.formBuilder.group({
-      tableNumber: [undefined],
-      orderName: [undefined],
-      orderType: [undefined],
-      quantity: [undefined],
+      tableNumber: [undefined, Validators.compose([Validators.required])],
+      orderName: [undefined, Validators.compose([Validators.required])],
+      orderType: [undefined, Validators.compose([Validators.required])],
+      quantity: [undefined, Validators.compose([Validators.required])],
     });
   }
 
@@ -68,6 +68,9 @@ export class KitchenOrderComponent implements OnInit {
 
   onNavigateBack() {
     this.location.back();
+  }
+  onCancel() {
+    this.foodOrderForm.reset();
   }
 
 }
