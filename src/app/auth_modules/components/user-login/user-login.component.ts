@@ -19,7 +19,8 @@ export class UserLoginComponent implements OnInit {
   title: string = ' Restaurant Inventory System';
   appVersion: number = 0.1;
   public currentYear = new Date().getFullYear();
-
+  username1: string = "Deepak"
+  username2: string = "selena"
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -44,25 +45,31 @@ export class UserLoginComponent implements OnInit {
     return this.loginForm.controls
   }
 
+
   onUserLogin() {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }
-    this.authService.loginUser(this.loginForm.value as LoginModal).subscribe(
-      {
-        next: (value: any) => {
-          this.loginForm.reset();
-          console.log("User Login Successful")
-          this.toastService.success("Login Successful")
-          this.router.navigate(['/feature-modules/home']);
-        }, error: (err: any) => {
-          console.log("Unable to login the user")
-          this.toastService.error("Unable to login")
-          this.router.navigate(['/feature-modules/home']);
-        }
-      });
+    if ((this.loginForm?.value?.username === this.username1) || (this.loginForm?.value?.username === this.username2)) {
+      this.authService.loginUser(this.loginForm.value as LoginModal).subscribe(
+        {
+          next: (value: any) => {
+            this.loginForm.reset();
+            console.log("User Login Successful")
+            this.toastService.success("Login Successful")
+            this.router.navigate(['/feature-modules/home']);
+          }, error: (err: any) => {
+            console.log("Unable to login the user")
+            this.toastService.error("Unable to login")
+            this.router.navigate(['/feature-modules/home']);
+          }
+        });
 
+    }
+    else{
+      this.toastService.error("Invalid credentials")
+    }
   }
 
   onNavigateToRegister() {
