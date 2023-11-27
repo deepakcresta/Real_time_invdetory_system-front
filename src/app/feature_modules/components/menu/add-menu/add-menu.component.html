@@ -26,37 +26,31 @@
       </div>
       <div class="col-sm-4">
         <div class="form-group">
-          <label>credentials Name: <span class="text-danger">*</span> </label>
-          <input type="text" name="credentialName" id="credentialName" formControlName="credentialName" placeholder="Credentials Name" class="form-control" />
+          <label>credentials Name: </label>
+          <input type="text" name="credentialName" id="credentialName" formControlName="credentialName" placeholder="Credentials Name" class="no-border-input form-control" />
         </div>
       </div>
 
       <div class="col-sm-4">
         <div class="form-group">
-          <label>Quantity: <span class="text-danger">*</span> </label>
-          <input type="text" name="quantity" id="quantity" formControlName="quantity" placeholder="Quantity" class="form-control" />
+          <label>Quantity: </label>
+          <input type="text" name="quantity" id="quantity" formControlName="quantity" placeholder="Quantity" class="no-border-input form-control" />
         </div>
       </div>
 
       <div class="col-sm-4">
-        <div class="form-group">
-          <ng-select
-            [items]="units"
-            bindLabel="label"
-            bindValue="value"
-            placeholder="Unit"
-            formControlName="unit">
-          </ng-select>
-          <span
-            *ngIf="submitted || form['unit']?.dirty && form['unit']?.invalid"
-            class="info-msg text-danger">
-            <small
-              *ngIf="form['unit']?.errors && form['unit'].errors?.['required']">
-              Unit is required.
-            </small>
-          </span>
+          <div class="form-group">
+            <label> Unit</label>
+            <br>
+            <select formControlName="unit" class="form-control no-border-input" placeholde="Unit">
+              <option value="KG">KG</option>
+              <option value="Gram"> Gram</option>
+              <option value="Liter">Liter</option>
+              <option value="Milligram">Milligram</option>
+            </select>
+
+          </div>
         </div>
-      </div>
     </div>
     <span class="badge bg-danger float-end" *ngIf="getContactForm.length > 1" (click)="deleteContactForm(i)">Delete</span>
   </ng-container>

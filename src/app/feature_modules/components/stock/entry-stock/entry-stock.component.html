@@ -97,13 +97,13 @@
     <div class="col-sm-6">
       <div class="form-group">
                 <label>Manufacture Date:</label>
-        <!--        <span-->
-        <!--          *ngIf="submitted  || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"-->
-        <!--          class="info-msg text-danger">-->
-        <!--              <small-->
-        <!--                *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>-->
-        <!--              <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>-->
-        <!--            </span>-->
+                <span
+                  *ngIf="submitted  || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"
+                  class="info-msg text-danger">
+                      <small
+                        *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
 
 
         <deepak-date-picker formControlName="manufacturingDate"></deepak-date-picker>

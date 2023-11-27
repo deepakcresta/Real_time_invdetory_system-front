@@ -15,6 +15,9 @@ export class DashboardComponent implements OnInit {
   allStockList: Array<any> = new Array<any>();
   submitted: boolean = false;
   dangerStock: any;
+  totalMenuList:any;
+  orderList:any;
+  totalSale:any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,6 +30,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.listAllStocks();
+    this.listAllMenu();
+    this.listOrders();
+
   }
 
   onNavigateBack() {
@@ -53,4 +59,25 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+  listAllMenu(){
+    this.sharedService.listAllMenu().subscribe({
+      next:(res:any)=>{
+        console.log("menu response", res)
+        this.totalMenuList = res?.total;
+      }
+    })
+
+  }
+  listOrders() {
+    this.sharedService.listAllOrders().subscribe({
+      next: (response: any) => {
+
+        this.orderList = response?.total;
+        console.log("al ", this.orderList);
+        this.totalSale = this.orderList+5;
+      },
+
+    });
+  }
+
 }

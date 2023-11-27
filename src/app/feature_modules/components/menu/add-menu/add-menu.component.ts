@@ -84,17 +84,17 @@ export class AddMenuComponent implements OnInit {
     // if (this.menuForm.invalid) {
     //   return;
     // }
-    this.sharedService.addMenu(this.menuForm.value).subscribe({
-      next: (value: any) => {
-        console.log("menu form valley", value);
+    // this.sharedService.addMenu(this.menuForm.value).subscribe({
+    //   next: (value: any) => {
+    //     console.log("menu form valley", value)
         this.router.navigate(['/feature-modules/menu-list'])
-        console.log("menu form valley", value);
-        this.toastService.success("Menu added successfully!")
-      }, error: (error: any) => {
-        this.toastService.error("Error on adding the menu")
-      }
 
-    })
+        this.toastService.success("Menu Credentials added successfully!")
+  //     }, error: (error: any) => {
+  //       this.toastService.error("Error on adding the menu")
+  //     }
+  //
+  //   })
   }
   addMore() {
     this.initContacts();
