@@ -1,1 +1,170 @@
-<p>algorithm works!</p>
+<div class="row">
+  <i class="fa fa-times text-right" aria-hidden="true" (click)="onNavigateBack()"></i>
+</div>
+<div class="row ">
+  <div class="col-sm-12 d-flex  ">
+    <h4><strong> Stock Entry Form </strong></h4>
+  </div>
+  <!--  <hr class="my-2"/>-->
+</div>
+
+<form [formGroup]="stockEntryForm">
+  <div class="row mt-2">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Stock Name</label>
+        <input id="stockName" type="text" placeholder="stockName" formControlName="stockName"
+               class="form-control no-border-input"
+               name="username"/>
+        <span
+          *ngIf="submitted || form['stockName'].touched || form['stockName'].dirty && form['stockName'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['stockName'].errors && form['stockName'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['stockName'].errors && form['stockName'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Quantity</label>
+        <input name="quantity" formControlName="quantity" id="quantity" class="form-control no-border-input"
+               placeholder=" Quantity"
+               [(ngModel)]="isFirstFieldTouched"
+               (focus)="onQuantityFieldFocus()"
+               (input)="updateAverageQuantity()"/>
+
+        <span
+          *ngIf="submitted || form['quantity'].touched || form['quantity'].dirty && form['quantity'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['quantity'].errors && form['quantity'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['quantity'].errors && form['quantity'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
+      </div>
+    </div>
+    <div *ngIf="isFirstFieldTouched && averageQuantity !== null" class="col-sm-6">
+        <div class="form-group">
+          <label>Predicted Quantity</label>
+          <input
+            id="predictedQuantity"
+            class="form-control no-border-input"
+            [value]="averageQuantity.toFixed(2)"
+            [readonly]="true"
+          />
+        </div>
+      </div>
+<!--    <div *ngIf="isFirstFieldTouched" class="col-sm-6">-->
+<!--      <div class="form-group">-->
+<!--        <label> Predicted Quantity</label>-->
+<!--        <input name="predictedQuantity" formControlName="quantity" id="predictedQuantity" class="form-control no-border-input" id="firstField"-->
+<!--               [(ngModel)]="isFirstFieldTouched"-->
+<!--               (focus)="isFirstFieldTouched = true"-->
+<!--               (input)="updateAverageQuantity()"/>-->
+<!--        <span-->
+<!--          *ngIf="submitted || form['predictedQuantity'].touched || form['quantity'].dirty && form['predictedQuantity'].invalid"-->
+<!--          class="info-msg text-danger">-->
+<!--                      <small-->
+<!--                        *ngIf="form['predictedQuantity'].errors && form['predictedQuantity'].errors?.['predictedQuantity']">This is the required field.</small>-->
+<!--                      <small *ngIf="form['predictedQuantity'].errors && form['predictedQuantity'].errors?.['predictedQuantity']">Should have at least 4 characters.</small>-->
+<!--                    </span>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label> Unit</label>
+        <br>
+        <select formControlName="quantityUnit" class="form-control no-border-input" placeholde="Unit">
+          <option value="KG">KG</option>
+          <option value="Gram"> Gram</option>
+          <option value="Liter">Liter</option>
+          <option value="Milligram">Milligram</option>
+        </select>
+        <span
+          *ngIf="submitted || form['quantityUnit'].touched || form['quantityUnit'].dirty && form['quantityUnit'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['quantityUnit'].errors && form['quantityUnit'].errors?.['required']">This is the required field.</small>
+          </span>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Brand Name</label>
+        <input name="brandName" formControlName="brandName" id="brandName" class="form-control no-border-input"
+               placeholder="Brand Name"/>
+        <span
+          *ngIf="submitted || form['brandName'].touched || form['brandName'].dirty && form['brandName'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['brandName'].errors && form['brandName'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['brandName'].errors && form['brandName'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label> Stock Category</label>
+        <br>
+        <select formControlName="category" class="form-control no-border-input" placeholde="Chose Category">
+          <option value="normalGoods"> Normal Goods</option>
+          <option value="spicesFoods"> Spices Food</option>
+          <option value="liquid">Liquid</option>
+          <option value="vegetables"> Vegetables</option>
+          <option value="nonVeg"> Non-Veg</option>
+          option
+        </select>
+        <span
+          *ngIf="submitted || form['category'].touched || form['category'].dirty && form['category'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['category'].errors && form['category'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['category'].errors && form['category'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Manufacture Date:</label>
+        <span
+          *ngIf="submitted  || form['manufacturingDate'].dirty && form['manufacturingDate'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['required']">This is the required field.</small>
+                      <small *ngIf="form['manufacturingDate'].errors && form['manufacturingDate'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
+
+
+        <deepak-date-picker formControlName="manufacturingDate"></deepak-date-picker>
+
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Expiry Date:</label>
+        <deepak-date-picker formControlName="expiryDate"></deepak-date-picker>
+        <!--        <input type="text" name="expiryDate" formControlName="expiryDate" id="expiryDate"-->
+        <!--               class="form-control no-border-input" placeholder="Expiry Date"/>-->
+        <!--        <span-->
+        <!--          *ngIf="submitted || form['expiryDate'].touched || form['expiryDate'].dirty && form['expiryDate'].invalid"-->
+        <!--          class="info-msg text-danger">-->
+        <!--                      <small-->
+        <!--                        *ngIf="form['expiryDate'].errors && form['expiryDate'].errors?.['required']">This is the required field.</small>-->
+        <!--                      <small *ngIf="form['expiryDate'].errors && form['expiryDate'].errors?.['minlength']">Should have at least 4 characters.</small>-->
+        <!--                    </span>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-12">
+      <div class=" d-flex  float-end mt-4">
+        <button (click)="onSaveStockLevel()" class="btn btn-submit">Submit</button>
+        <button type="submit" class="btn btn-cancel ms-3" (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>
+
