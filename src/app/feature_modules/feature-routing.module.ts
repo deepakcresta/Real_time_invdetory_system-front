@@ -15,6 +15,7 @@ import {MenuListComponent} from "./components/menu/menu-list/menu-list.component
 import {
   AddRespectiveMenuCredentialsComponent
 } from "./components/menu/add-respective-menu-credentials/add-respective-menu-credentials.component";
+import {AlgorithmComponent} from "./components/algorithms/algorithm/algorithm.component";
 
 const routes: Routes = [
   {
@@ -68,7 +69,12 @@ const routes: Routes = [
       {
         path:'menu-credentials',
         component:AddRespectiveMenuCredentialsComponent
+      },
+      {
+        path:'arima-algorithm',
+        component:AlgorithmComponent,
       }
+
     ]
   }
 ];

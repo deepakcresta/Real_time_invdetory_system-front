@@ -24,6 +24,7 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import { MenuListComponent } from './components/menu/menu-list/menu-list.component';
 import { AddRespectiveMenuCredentialsComponent } from './components/menu/add-respective-menu-credentials/add-respective-menu-credentials.component';
 import {CoreModule} from "../core_modules/components/common/core.module";
+import { AlgorithmComponent } from './components/algorithms/algorithm/algorithm.component';
 
 
 
@@ -44,6 +45,7 @@ import {CoreModule} from "../core_modules/components/common/core.module";
     AddMenuComponent,
     MenuListComponent,
     AddRespectiveMenuCredentialsComponent,
+    AlgorithmComponent,
   ],
   imports: [
     CommonModule,

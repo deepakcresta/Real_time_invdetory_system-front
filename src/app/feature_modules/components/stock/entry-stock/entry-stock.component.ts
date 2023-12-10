@@ -16,8 +16,12 @@ import {ToastrService} from "ngx-toastr";
 export class EntryStockComponent implements OnInit {
   stockEntryForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
+  isFirstFieldTouched = false
+  allStockList: Array<any> = new Array<any>();
+  averageQuantity: number | null = null;
+  arimaListValue: any;
 
-  finalData :any;
+  finalData: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,12 +29,16 @@ export class EntryStockComponent implements OnInit {
     private router: Router,
     private sharedService: SharedService,
     private toastService: ToastrService,
-  private datePipe: DatePipe
+    private datePipe: DatePipe
   ) {
   }
 
   ngOnInit(): void {
+    this.listAllStocks();
+
     this.buildForm();
+    this.updateAverageQuantity();
+
   }
 
   buildForm() {
@@ -42,7 +50,7 @@ export class EntryStockComponent implements OnInit {
       expiryDate: [undefined],
       manufacturingDate: [undefined],
       quantityUnit: [undefined, Validators.compose([Validators.required])],
-
+      predictedQuantity: [undefined]
     });
   }
 
@@ -61,7 +69,7 @@ export class EntryStockComponent implements OnInit {
       return;
     }
     finalData: this.stockEntryForm.value;
-    console.log("dfgdfgd",this.stockEntryForm.value);
+    console.log("dfgdfgd", this.stockEntryForm.value);
     this.stockEntryForm.value.manufacturingDate.date ? this.stockEntryForm.value.manufacturingDate = this.stockEntryForm.value.manufacturingDate.date : '';
     this.stockEntryForm.value.expiryDate.date ? this.stockEntryForm.value.expiryDate = this.stockEntryForm.value.expiryDate.date : '';
     this.sharedService.addStock(this.stockEntryForm.value).subscribe({
@@ -82,5 +90,35 @@ export class EntryStockComponent implements OnInit {
 
   onCancel() {
     this.stockEntryForm.reset();
+  }
+
+  listAllStocks() {
+    this.sharedService.listAllStocks().subscribe({
+      next: (response: any) => {
+        console.log("all stocks listed: ", response);
+        this.allStockList = response?.stocks[0]?.stockName;
+        debugger
+        console.log("list",this.allStockList)
+        let datea = this.allStockList?.filter(item => item?.quantity !== null && item?.quantity !== undefined && item?.quantity < 20);
+        console.log("mero date", datea);
+        console.log("al ", this.allStockList);
+
+      },
+      error: (error: any) => {
+        console.log("unable to list all users: ", error);
+      }
+    });
+  }
+
+  updateAverageQuantity() {
+    // Check if there are at least 10 items in the list
+    this.arimaListValue = this.allStockList;
+    console.log("algorithm value", this.arimaListValue)
+    if (this.allStockList.length >= 5) {
+      // Calculate the average quantity of the last 10 items
+      const last10Items = this.allStockList?.slice(-5);
+      const sum = last10Items.reduce((total, item) => total + item.quantity, 0);
+      this.averageQuantity = sum / 5;
+    }
   }
 }

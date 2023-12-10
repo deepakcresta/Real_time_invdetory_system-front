@@ -30,12 +30,30 @@
         <label>Quantity</label>
         <input name="quantity" formControlName="quantity" id="quantity" class="form-control no-border-input"
                placeholder=" Quantity"/>
+<!--               [(ngModel)]="isFirstFieldTouched" (focus)="isFirstFieldTouched=true"-->
+<!--               (input)="updateAverageQuantity()"/>-->
+
         <span
           *ngIf="submitted || form['quantity'].touched || form['quantity'].dirty && form['quantity'].invalid"
           class="info-msg text-danger">
                       <small
                         *ngIf="form['quantity'].errors && form['quantity'].errors?.['required']">This is the required field.</small>
                       <small *ngIf="form['quantity'].errors && form['quantity'].errors?.['minlength']">Should have at least 4 characters.</small>
+                    </span>
+      </div>
+    </div>
+    <div *ngIf="isFirstFieldTouched" class="col-sm-6">
+      <div class="form-group">
+        <label> Predicted Quantity</label>
+        <input name="predictedQuantity" formControlName="quantity" id="predictedQuantity" class="form-control no-border-input"/>
+<!--               [value]="averageQuantity !== null ? averageQuantity.toFixed(2) : ''"-->
+<!--               [readonly]="true">-->
+        <span
+          *ngIf="submitted || form['predictedQuantity'].touched || form['quantity'].dirty && form['predictedQuantity'].invalid"
+          class="info-msg text-danger">
+                      <small
+                        *ngIf="form['predictedQuantity'].errors && form['predictedQuantity'].errors?.['predictedQuantity']">This is the required field.</small>
+                      <small *ngIf="form['predictedQuantity'].errors && form['predictedQuantity'].errors?.['predictedQuantity']">Should have at least 4 characters.</small>
                     </span>
       </div>
     </div>
